@@ -1,0 +1,125 @@
+name: civiclens
+
+# Default profile: postgres + langfuse (small images; postgres image is shared with langfuse-db).
+# Profile "full": adds ollama/api/ui containers for machines with disk headroom.
+# On macOS, native Ollama (brew install ollama) is preferred over the 2.8GB Docker image —
+# it is ~30MB and gets Metal GPU acceleration. `make setup` handles this automatically.
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: civiclens-postgres
+    environment:
+      POSTGRES_USER: civiclens
+      POSTGRES_PASSWORD: civiclens
+      POSTGRES_DB: civiclens
+    ports:
+      - "5442:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./initdb:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U civiclens -d civiclens"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  langfuse-db:
+    # Reuses the pgvector image so no extra image pull is needed; langfuse only
+    # needs plain Postgres.
+    image: pgvector/pgvector:pg16
+    container_name: civiclens-langfuse-db
+    environment:
+      POSTGRES_USER: langfuse
+      POSTGRES_PASSWORD: langfuse
+      POSTGRES_DB: langfuse
+    volumes:
+      - langfusedata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U langfuse -d langfuse"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  langfuse:
+    image: langfuse/langfuse:2
+    container_name: civiclens-langfuse
+    depends_on:
+      langfuse-db:
+        condition: service_healthy
+    ports:
+      - "3001:3000"
+    environment:
+      # Next.js standalone binds to $HOSTNAME; force all interfaces so the
+      # localhost healthcheck probe works.
+      HOSTNAME: 0.0.0.0
+      DATABASE_URL: postgresql://langfuse:langfuse@langfuse-db:5432/langfuse
+      NEXTAUTH_URL: http://localhost:3001
+      NEXTAUTH_SECRET: civiclens-dev-nextauth-secret
+      SALT: civiclens-dev-salt
+      TELEMETRY_ENABLED: "false"
+      LANGFUSE_ENABLE_EXPERIMENTAL_FEATURES: "false"
+      # Headless provisioning so tracing works without manual signup in the UI.
+      # These keys match LANGFUSE_PUBLIC_KEY / LANGFUSE_SECRET_KEY in .env.example.
+      LANGFUSE_INIT_ORG_ID: civiclens
+      LANGFUSE_INIT_ORG_NAME: CivicLens
+      LANGFUSE_INIT_PROJECT_ID: civiclens
+      LANGFUSE_INIT_PROJECT_NAME: civiclens
+      LANGFUSE_INIT_PROJECT_PUBLIC_KEY: pk-lf-civiclens-dev
+      LANGFUSE_INIT_PROJECT_SECRET_KEY: sk-lf-civiclens-dev
+      LANGFUSE_INIT_USER_EMAIL: admin@civiclens.local
+      LANGFUSE_INIT_USER_NAME: Admin
+      LANGFUSE_INIT_USER_PASSWORD: civiclens-admin
+    healthcheck:
+      # 127.0.0.1 (not localhost): the app binds IPv4 only, and in-container
+      # localhost resolves to ::1 first.
+      test: ["CMD-SHELL", "wget -q --spider http://127.0.0.1:3000/api/public/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+
+  ollama:
+    profiles: ["full"]
+    image: ollama/ollama:latest
+    container_name: civiclens-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollamadata:/root/.ollama
+
+  api:
+    profiles: ["full"]
+    build:
+      context: ..
+      dockerfile: infra/Dockerfile
+    container_name: civiclens-api
+    command: uvicorn api.main:app --host 0.0.0.0 --port 8000
+    environment:
+      DATABASE_URL: postgresql://civiclens:civiclens@postgres:5432/civiclens
+      OLLAMA_BASE_URL: http://ollama:11434
+      LANGFUSE_HOST: http://langfuse:3000
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  ui:
+    profiles: ["full"]
+    build:
+      context: ..
+      dockerfile: infra/Dockerfile
+    container_name: civiclens-ui
+    command: streamlit run ui/app.py --server.port 8501 --server.address 0.0.0.0
+    environment:
+      API_BASE_URL: http://api:8000
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
+
+volumes:
+  pgdata:
+  langfusedata:
+  ollamadata:

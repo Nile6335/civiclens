@@ -1,0 +1,70 @@
+[project]
+name = "civiclens"
+version = "0.1.0"
+description = "Multimodal RAG platform over local-government meeting videos, agenda PDFs, and budget tables"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "sse-starlette>=2.1",
+    "pydantic>=2.8",
+    "pydantic-settings>=2.4",
+    "psycopg[binary,pool]>=3.2",
+    "pgvector>=0.3",
+    "httpx>=0.27",
+    "streamlit>=1.38",
+    "webvtt-py>=0.5",
+    "yt-dlp>=2024.8.6",
+    "pdfplumber>=0.11",
+    "sentence-transformers>=3.0",
+    "langgraph>=0.2.60",
+    "langchain-core>=0.3",
+    "langchain-ollama>=0.2",
+    "langfuse>=2.50,<3",
+    "matplotlib>=3.9",
+    "tenacity>=8.5",
+    "langchain>=0.3,<1",
+]
+
+[project.optional-dependencies]
+anthropic = ["langchain-anthropic>=0.2"]
+asr = ["faster-whisper>=1.0"]
+evals = ["ragas>=0.2.14,<0.3", "datasets>=2.20"]
+
+[dependency-groups]
+dev = [
+    "fpdf2>=2.8.7",
+    "pytest>=8.3",
+    "pytest-asyncio>=0.24",
+    "ruff>=0.6",
+]
+
+[tool.uv]
+package = false
+
+# Keep Linux (CI/Docker) installs lean: CPU-only torch instead of CUDA builds.
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["data"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "W"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+asyncio_mode = "auto"
+markers = [
+    "integration: requires the docker compose stack (Postgres) to be running",
+    "slow: long-running tests (model downloads, LLM calls)",
+]

@@ -1,0 +1,26 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Environment
+.env
+
+# Data: bundled samples are committed; raw downloads are not
+data/raw/
+data/cache/
+
+# Model caches
+.models/
+
+# OS
+.DS_Store
+
+# Scratch
+*.log
+.uv-sync.done
+.demo/
+digests/
