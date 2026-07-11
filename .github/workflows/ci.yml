@@ -1,0 +1,102 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v4
+        with:
+          python-version: "3.11"
+      - run: uv sync --all-extras
+      - run: uv run ruff check .
+      - run: uv run ruff format --check .
+
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_USER: civiclens
+          POSTGRES_PASSWORD: civiclens
+          POSTGRES_DB: civiclens
+        ports:
+          - 5442:5432
+        options: >-
+          --health-cmd "pg_isready -U civiclens -d civiclens"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql://civiclens:civiclens@localhost:5442/civiclens
+      EMBEDDING_MODEL: BAAI/bge-small-en-v1.5
+      EMBEDDING_DIM: "384"
+      RERANKER_MODEL: cross-encoder/ms-marco-TinyBERT-L-2-v2
+      TOPIC_TAGGER: keyword
+      HF_HUB_DISABLE_PROGRESS_BARS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v4
+        with:
+          python-version: "3.11"
+      - run: uv sync --all-extras
+      - run: uv run python -m common.db
+      - run: uv run pytest -q -m "not slow"
+
+  # Eval regression gate: small-footprint Ollama run over the sample-corpus subset of
+  # the committed golden dataset; fails if faithfulness or MRR regresses >5% vs the
+  # committed baseline for this exact model configuration.
+  eval-gate:
+    runs-on: ubuntu-latest
+    needs: [test]
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_USER: civiclens
+          POSTGRES_PASSWORD: civiclens
+          POSTGRES_DB: civiclens
+        ports:
+          - 5442:5432
+        options: >-
+          --health-cmd "pg_isready -U civiclens -d civiclens"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql://civiclens:civiclens@localhost:5442/civiclens
+      DATABASE_URL_RO: postgresql://civiclens_ro:civiclens_ro@localhost:5442/civiclens
+      EMBEDDING_MODEL: BAAI/bge-small-en-v1.5
+      EMBEDDING_DIM: "384"
+      RERANKER_MODEL: cross-encoder/ms-marco-TinyBERT-L-2-v2
+      TOPIC_TAGGER: keyword
+      OLLAMA_MODEL: qwen2.5:1.5b
+      HF_HUB_DISABLE_PROGRESS_BARS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v4
+        with:
+          python-version: "3.11"
+      - run: uv sync --all-extras
+      - name: Install and start Ollama
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+          ollama serve > /tmp/ollama.log 2>&1 &
+          for i in $(seq 1 30); do curl -sf http://localhost:11434/api/version && break; sleep 2; done
+          ollama pull qwen2.5:1.5b
+      - run: uv run python -m common.db
+      - run: uv run python -m ingestion.cli samples
+      - run: uv run python -m retrieval.index
+      - name: Eval regression gate
+        run: uv run python -m evals.run --sample-only --subset 20 --check-baseline
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: eval-results
+          path: evals/results/

@@ -1,0 +1,1465 @@
+[
+ {
+  "id": "transcript-mesa-4474-0",
+  "question": "At the mesa city council meeting of 2026-04-06, who is absent and why?",
+  "answer": "Council member GoForth is absent due to being unable to attend.",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4474",
+    "chunk_index": 0,
+    "text_snippet": "Thank you. Welcome to the Mesa City Council meeting for April 6th, 2026. Council member GoForth is unable to attend and is excused. Council member Heredia is participating by Zoom. Otherwise, all othe"
+   }
+  ],
+  "table_name": null,
+  "sample": true,
+  "validated": false,
+  "judge_notes": "failed: answerable (programmatic span-support)"
+ },
+ {
+  "id": "transcript-mesa-4474-21",
+  "question": "When did Mesa City Council first sign a 287G agreement with ICE?",
+  "answer": "2009",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4474",
+    "chunk_index": 21,
+    "text_snippet": "attempting to have our 287G agreement with ICE rescinded. This is a long-standing partnership signed in 2009 under the first Obama administration that is vital to the safety and security of our great "
+   }
+  ],
+  "table_name": null,
+  "sample": true,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "transcript-seattle-6811-35",
+  "question": "At the seattle city council meeting of 2026-06-30, who is running the memorial rally for George Floyd?",
+  "answer": "Beat Bennett",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 35,
+    "text_snippet": ">> [clears throat] >> screenshot of a woman saying \"Beat Bennett to death like a man who raped a 5-year-old child.\" And by the way, this is the person who is running the memorial rally for George Floy"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "transcript-seattle-6811-42",
+  "question": "At the seattle city council meeting of 2026-06-30, who is the vice president of real estate development at Mercy Housing Northwest?",
+  "answer": "Colin Wooden Cross",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 42,
+    "text_snippet": "that you continue to do. So, thank you very much for representing our city. >> Thank you, Jen. Uh next we have Colin followed by Peter or Colin, star six and mute yourself. Welcome. >> Good afternoon,"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "transcript-seattle-6811-98",
+  "question": "At the seattle city council meeting of 2026-06-30, what is the bill number for the housing program?",
+  "answer": "121218",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 98,
+    "text_snippet": ">> Council Member Rivera? >> Aye. >> Council Member Sawant? >> Aye. >> Council Member Strauss? >> Aye. >> Council Member Foster? >> Yes. >> Council Member Juarez? >> Aye. >> Council President Hollings"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "transcript-seattle-6811-112",
+  "question": "At the seattle city council meeting of 2026-06-30, what was the previous use of the property acquired by WSDOT?",
+  "answer": "A gas station and convenience store.",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 112,
+    "text_snippet": "continuing to build affordable housing in the city. So, I will start also with an appreciation again to our colleagues in the state legislature who appropriated resources for the office of housing so "
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "transcript-seattle-6802-14",
+  "question": "At the seattle city council meeting of 2026-06-29, who is fortunate enough to be fairly well educated and somewhat sophisticated?",
+  "answer": "I",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6802",
+    "chunk_index": 14,
+    "text_snippet": "umping hundreds of thousands of dollars. And I can certainly understand given that how people feel about that kind of money coming in and how tempting that can be, especially when somebody follows it "
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "transcript-seattle-6802-21",
+  "question": "At the seattle city council meeting of 2026-06-29, what is Yoursef Nadair's profession?",
+  "answer": "licensed agent",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6802",
+    "chunk_index": 21,
+    "text_snippet": "happened. So, I just want to share that. Thank you. Thank you. >> Our next speaker will be Yousef, followed by Randy. Yes. Hi. Good morning. Hi, my name is Yousef Nadair and I'm a licensed agent also "
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "transcript-seattle-6802-42",
+  "question": "Who is speaking next after Tasha May?",
+  "answer": "Lois",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6802",
+    "chunk_index": 42,
+    "text_snippet": "Office of Civil Rights can actually enforce it. The people I represent don't have time to organize. They're at work. They're with families, but they deserve peace in their own homes. Pass this, fund t"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "transcript-seattle-6802-49",
+  "question": "Who is the final speaker at the Seattle City Council meeting?",
+  "answer": "Chennai Cobb",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6802",
+    "chunk_index": 49,
+    "text_snippet": "step toward protecting Seattle's legacy homeowners and preserving the community's history and culture that they've spent generations building. Thank you. >> And our final speaker will be Chennai Cobb."
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: nontrivial"
+ },
+ {
+  "id": "transcript-seattle-6802-70",
+  "question": "What section of the Seattle Municipal Code was this definition added to?",
+  "answer": "Section 14.08.02",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6802",
+    "chunk_index": 70,
+    "text_snippet": "implied only for the purposes of this bill or broadly across city code? So, we added this as a definition to um section 14.08.02 of the Seattle Municipal Code, which has to do with the fair with fair "
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "transcript-seattle-6802-77",
+  "question": "At the seattle city council meeting of 2026-06-29, what is the concern regarding the use of the word 'solicit'?",
+  "answer": "The concern is that the term 'solicit' could be interpreted as including any interest, which might not align with the intention to reach out for homeowners.",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6802",
+    "chunk_index": 77,
+    "text_snippet": "about um not prohibiting sort of other types of activity that might be perfectly acceptable. Um so um one thing I don't want to prohibit sort of the government from reaching out to um homeowners. ther"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: answerable (programmatic span-support)"
+ },
+ {
+  "id": "transcript-seattle-6802-91",
+  "question": "At the seattle city council meeting of 2026-06-29, who has been targeted by members of the city council?",
+  "answer": "family members",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6802",
+    "chunk_index": 91,
+    "text_snippet": "Uh, and and hopefully they'll be able to work with this ordinance and find new creative ways to to still be in community. Uh but our members uh specifically have come to us about the uh and we've hear"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "transcript-seattle-6802-98",
+  "question": "What percentage of Seattle's population is made up of immigrants and refugees?",
+  "answer": "40%",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6802",
+    "chunk_index": 98,
+    "text_snippet": "the 70% people of color, the 40% immigrants and refugees. And I want to contextualize what's happening to us right now with this current presidential administration. Our population, specifically our i"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: nontrivial"
+ },
+ {
+  "id": "transcript-seattle-6802-105",
+  "question": "At the seattle city council meeting of 2026-06-29, what year did you start living on Beacon Hill?",
+  "answer": "1984",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6802",
+    "chunk_index": 105,
+    "text_snippet": "community experience and and also actually I'll give you please speak to the report. I think you maybe brought a copy of it with you as well. So, thank you. >> Yeah, thank you. And I failed to say tha"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "transcript-seattle-6802-112",
+  "question": "At the seattle city council meeting of 2026-06-29, what policy was not discussed in the brief?",
+  "answer": "Vacancy",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6802",
+    "chunk_index": 112,
+    "text_snippet": "power in planning and development by establishing local planning and accountability through equitable development zones. There's some work kind of meandering towards that direction these days. uh pres"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "transcript-seattle-6802-119",
+  "question": "At the seattle city council meeting of 2026-06-29, what is a common issue faced by homeowners who cannot afford improvements?",
+  "answer": "They don't have resources for some improvements they need to make.",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6802",
+    "chunk_index": 119,
+    "text_snippet": "connect with people to save people's, you know, homes if they don't because usually people feel like they have to sell or they are subject to sell or whatever, what have you, is because they don't hav"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "transcript-seattle-6802-147",
+  "question": "At the seattle city council meeting of 2026-06-29, what is the purpose of ensuring that individuals on the list can proactively seek a broker to sell their home?",
+  "answer": "To allow them to get support and assistance in selling their home if needed.",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6802",
+    "chunk_index": 147,
+    "text_snippet": "might need to sell their home. So, how do we make sure that that this doesn't prohibit them somebody from being on the list to preclude all the unsolicited calls to make sure that they still have full"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: answerable (programmatic span-support)"
+ },
+ {
+  "id": "transcript-mesa-4483-0",
+  "question": "At the mesa city council meeting of 2026-06-08, who is leading the prayer?",
+  "answer": "Pastor Richard Cornnejo",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4483",
+    "chunk_index": 0,
+    "text_snippet": "Welcome to our Mesa City Council meeting for June 8th, 2026. All of our council members are present. As usual, we begin the meeting with an invocation by Pastor Richard Cornnejo from the outreach Mesa"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "transcript-mesa-4483-14",
+  "question": "At the mesa city council meeting of 2026-06-08, who will be removed by the officers?",
+  "answer": "The individual trespassed",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4483",
+    "chunk_index": 14,
+    "text_snippet": "Mayor, Mayor, under management policy, I'm having this individual trespassed and she will be removed by our officers. >> Okay. >> Thank you. What about the woman in the hideous flag outfit? >> She goi"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "transcript-mesa-4483-28",
+  "question": "At the mesa city council meeting of 2026-06-08, what is the amount of money raised on taxpayers' behalf to subsidize paratransit services?",
+  "answer": "$18.3 million this year",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4483",
+    "chunk_index": 28,
+    "text_snippet": "paratransit where the money could serve exponentially more residents at a fraction of the cost. May I also note that the light rail is a single track that goes in one direction. buses can be moved. Th"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "transcript-mesa-4483-35",
+  "question": "At the mesa city council meeting of 2026-06-08, what did the city council member not have to study because of their vote?",
+  "answer": "Prop 479",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4483",
+    "chunk_index": 35,
+    "text_snippet": "trains go by. So, I I see this a little differently. Um, question was asked earlier about Prop 479. I didn't vote yes, so I didn't have to study it. Um, however, I I see this as a simple contractual m"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "transcript-mesa-4483-42",
+  "question": "At the mesa city council meeting of 2026-06-08, what is one of the city services that receives subsidies?",
+  "answer": "Public safety",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4483",
+    "chunk_index": 42,
+    "text_snippet": "options there. It could be more efficient and I think we can work on those as we go forward. But it's something that we need to continue to be a relevant city. Shutting down our our light rail for a l"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: nontrivial"
+ },
+ {
+  "id": "transcript-mesa-4483-49",
+  "question": "What is Mesa's approach to addressing inflationary costs in their budget?",
+  "answer": "We try our best to make sure we narrow those costs throughout our region.",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4483",
+    "chunk_index": 49,
+    "text_snippet": "our pair transit. Um you know we issue RFPs um to the comment around uh sole providers. you know, we issue RFPs um and several companies uh locally and nationally apply for these RFPs to provide uh um"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: nontrivial"
+ },
+ {
+  "id": "transcript-mesa-4483-56",
+  "question": "What year did Mesa City Council discuss paying into perpetuity for multimodal transportation?",
+  "answer": "2002",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4483",
+    "chunk_index": 56,
+    "text_snippet": "their financial stewardship. And, um, I think it's just important that our obligation is again to the people who are the majority. We do subsidize a lot of things. Parks, public safety, yes, lots of r"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "transcript-mesa-4483-63",
+  "question": "At the mesa city council meeting of 2026-06-08, what is the highest level of study and scrutiny required for a resource-intensive data center?",
+  "answer": "The highest level",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4483",
+    "chunk_index": 63,
+    "text_snippet": "may be required. Before approving the project, a detailed study should be conducted and shared with the residents to better understand if this land could support other uses that bring more jobs, more "
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "transcript-mesa-4483-70",
+  "question": "What is Mesa's current status regarding data centers?",
+  "answer": "Mesa is now one of the most densely populated data center cities in America.",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4483",
+    "chunk_index": 70,
+    "text_snippet": ">> Good evening, mayor and council members. Uh, my name is Braden Peters. I'm a local resident of the city of Mesa. I'm here to provide a personal statement on behalf of myself as a concerned citizen "
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: nontrivial"
+ },
+ {
+  "id": "transcript-mesa-4487-21",
+  "question": "At the mesa city council meeting of 2026-06-01, how many public school cameras are planned to be integrated into the program?",
+  "answer": "5,000",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4487",
+    "chunk_index": 21,
+    "text_snippet": "we can be a little bit more efficient and not wasting money. Um one of my questions would be is that with the integration of all these different cameras with over I believe there's 5,000 public school"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "transcript-mesa-4487-28",
+  "question": "At the mesa city council meeting of 2026-06-01, what is the percentage increase in secondary property tax?",
+  "answer": "1%",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4487",
+    "chunk_index": 28,
+    "text_snippet": ">> Good evening, Mayor and Council members. Um first, I'm going to talk about just the justification that um you want to you want to give for raising fees and taxes and then I'm going to do an actual "
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "transcript-mesa-4487-35",
+  "question": "At the mesa city council meeting of 2026-06-01, who is Reggie Brown?",
+  "answer": "Reggie Brown",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4487",
+    "chunk_index": 35,
+    "text_snippet": "goes through the audit and finance committee for scrutiny each year and then ultimately up to the city council. So we don't raise any fee or charge lightly. We understand the burden that folks are are"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "transcript-mesa-4487-42",
+  "question": "At the mesa city council meeting of 2026-06-01, who is Reggie Barron?",
+  "answer": "Reggie Barron",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4487",
+    "chunk_index": 42,
+    "text_snippet": "just asking for a little bit more review. Thank you. >> Thank you, Mr. With Stanley. You can work with your vice mayor, too, about the Gateway shared use path. >> Yep. >> Okay. Great. Thank you. Uh ne"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "transcript-mesa-4487-56",
+  "question": "At the mesa city council meeting of 2026-06-01, who thanked Mahalo for taking care of the water?",
+  "answer": "Jim Bannon",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4487",
+    "chunk_index": 56,
+    "text_snippet": "and restaurants and grocery stores that we need to please get this done and we need to protect our transgender people even though I don't believe that they should be playing in women's sports and I yo"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "pdf-mesa-4474-0",
+  "question": "Who is the Vice Mayor of Mesa?",
+  "answer": "Scott Somers",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "pdf",
+    "meeting_id": "4474",
+    "chunk_index": 0,
+    "text_snippet": "Monday, April 6, 2026 City Hall\n\n5:45 PM 20 East Main Street\u00b9\n\nCity Council Agenda\n\nMark Freeman Mayor\n\nRich Adams Dorean Taylor Francisco Heredia Councilmember, District 1 Councilmember, District 2 C"
+   }
+  ],
+  "table_name": null,
+  "sample": true,
+  "validated": false,
+  "judge_notes": "failed: nontrivial"
+ },
+ {
+  "id": "pdf-mesa-4474-7",
+  "question": "At the mesa city council meeting of 2026-04-06, what is the contract number for the welding certification and inspection services?",
+  "answer": "26-0323",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "pdf",
+    "meeting_id": "4474",
+    "chunk_index": 7,
+    "text_snippet": "City Council Meeting Agenda - Final April 6, 2026\n\n4 Take action on the following contracts:\n\n*4-a 26-0323 Three-Year Term Contract with Two-Year Renewal Options for Welding Certification and Inspecti"
+   }
+  ],
+  "table_name": null,
+  "sample": true,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "pdf-mesa-4474-14",
+  "question": "What is the total amount authorized for the sale of Utility Systems Revenue Obligations Series 2026?",
+  "answer": "$341,000,000",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "pdf",
+    "meeting_id": "4474",
+    "chunk_index": 14,
+    "text_snippet": "City Council Meeting Agenda - Final April 6, 2026\n\n*5-c 26-0328 Authorizing the issuance and sale of General Obligation Bonds, Series 2026, not to exceed $61,000,000. (Citywide) Resolution No. 12485\n\n"
+   }
+  ],
+  "table_name": null,
+  "sample": true,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "pdf-seattle-6819-0",
+  "question": "What is the address of City Hall in Seattle?",
+  "answer": "600 4th Avenue",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "pdf",
+    "meeting_id": "6819",
+    "chunk_index": 0,
+    "text_snippet": "SEATTLE CITY COUNCIL\n\nCity Council\n\nAgenda\n\nTuesday, July 7, 2026 2:00 PM Council Chamber, City Hall 600 4th Avenue Seattle, WA 98104\n\nJoy Hollingsworth, Council President Dionne Foster, Member Debora"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: nontrivial"
+ },
+ {
+  "id": "pdf-seattle-6819-7",
+  "question": "At the seattle city council meeting of 2026-07-07, what is the term length for each appointment?",
+  "answer": "April 15, 2029",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "pdf",
+    "meeting_id": "6819",
+    "chunk_index": 7,
+    "text_snippet": "City Council Agenda July 7, 2026\n\nLAND USE AND SUSTAINABILITY COMMITTEE:\n\n5. Appt 03536 Appointment of T.J. Stutman as member, Seattle Planning Commission, for a term to April 15, 2028.\n\nAttachments: "
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "pdf-seattle-6802-0",
+  "question": "At the seattle city council meeting of 2026-06-29, what is the estimated time for comments to be distributed after 10 a.m.?",
+  "answer": "After the meeting",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "pdf",
+    "meeting_id": "6802",
+    "chunk_index": 0,
+    "text_snippet": "SEATTLE CITY COUNCIL\n\nCouncil Briefing\n\nJune 29, 2026 - 2:00 PM\n\nMeeting Location: Council Chamber, City Hall, 600 4th Avenue, Seattle, WA 98104\n\nCommittee Website: http://www.seattle.gov/council/\n\nOn"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "pdf-mesa-4483-7",
+  "question": "At the mesa city council meeting of 2026-06-08, *3-e 26-0568 Boulders on Southern",
+  "answer": "Commons LLC",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "pdf",
+    "meeting_id": "4483",
+    "chunk_index": 7,
+    "text_snippet": "City Council Meeting Agenda - Final June 8, 2026\n\n*3-e 26-0568 Boulders on Southern\n\nA restaurant that serves lunch and dinner is requesting a new Series 12 Restaurant License for Commons LLC, 1010 W "
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: nontrivial"
+ },
+ {
+  "id": "pdf-mesa-4483-14",
+  "question": "At the mesa city council meeting of 2026-06-08, what is the total revised contract amount?",
+  "answer": "$807,820",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "pdf",
+    "meeting_id": "4483",
+    "chunk_index": 14,
+    "text_snippet": "The Solid Waste Department, Department of Innovation and Technology, and Procurement Services recommend increasing the original dollar limit with Wastech Corp./Routeware, Inc. by an additional amount "
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "pdf-mesa-4487-7",
+  "question": "At the mesa city council meeting of 2026-06-01, what is the primary category of vehicles that Fleet Services will service?",
+  "answer": "Light duty",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "pdf",
+    "meeting_id": "4487",
+    "chunk_index": 7,
+    "text_snippet": "City Council Meeting Agenda - Final June 1, 2026\n\n*5-b 26-0533 Three-Year Term Contract with Two-Year Renewal Options for On-Site Vehicle Glass Services for the Fleet Services Department (Citywide)\n\nT"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "pdf-mesa-4487-14",
+  "question": "At the mesa city council meeting of 2026-06-01, what is the total amount of grant funds allocated to Arizona State University?",
+  "answer": "$185,598",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "pdf",
+    "meeting_id": "4487",
+    "chunk_index": 14,
+    "text_snippet": "City Council Meeting Agenda - Final June 1, 2026\n\n*6-d 26-0513 Approving and authorizing the City Manager to enter into an Intergovernmental Agreement with the City of Phoenix and Maricopa County for "
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "pdf-mesa-4487-21",
+  "question": "What is the Ordinance No. for the amendment to Mesa City Charter Section 211?",
+  "answer": "6016",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "pdf",
+    "meeting_id": "4487",
+    "chunk_index": 21,
+    "text_snippet": "City Council Meeting Agenda - Final June 1, 2026\n\n7 Discuss, receive public comment, and take action on the following ordinances:\n\n*7-a 26-0428 Ordinance repealing the existing Personnel Rules applica"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "pdf-mesa-4474-1",
+  "question": "At the mesa city council meeting of 2026-04-06, what is the contact number for Spanish interpretation services?",
+  "answer": "(480) 644-2767",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "pdf",
+    "meeting_id": "4474",
+    "chunk_index": 1,
+    "text_snippet": "SERVICIOS EN ESPA\u00d1OL: Si necesita asistencia o servicio de interpretaci\u00f3n en Espa\u00f1ol, comun\u00edquese con la Ciudad al menos 48 horas antes de la reunion al (480) 644-2767.\n\nPARTICIPATION: Members of the "
+   }
+  ],
+  "table_name": null,
+  "sample": true,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "pdf-mesa-4474-8",
+  "question": "At the mesa city council meeting of 2026-04-06, what is the total annual budget for Certerra Southwest's contract?",
+  "answer": "$300,000",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "pdf",
+    "meeting_id": "4474",
+    "chunk_index": 8,
+    "text_snippet": "A committee representing the Energy Resources Department and Procurement Services evaluated responses and recommend awarding the contract to the single responsive and responsible proposal from Certerr"
+   }
+  ],
+  "table_name": null,
+  "sample": true,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "pdf-mesa-4474-15",
+  "question": "At the mesa city council meeting of 2026-04-06, what is the proposed development's approximate square footage?",
+  "answer": "54,725\u00b1",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "pdf",
+    "meeting_id": "4474",
+    "chunk_index": 15,
+    "text_snippet": "6 Introduction of the following ordinance and setting April 20, 2026 as the date of the public hearing on this ordinance:\n\n*6-a 26-0235 ZON25-00942 \u201cRio Salado 25\u201d 3.1\u00b1 acres located at the northwest "
+   }
+  ],
+  "table_name": null,
+  "sample": true,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "pdf-seattle-6819-1",
+  "question": "At the seattle city council meeting of 2026-07-07, what is the contact phone number for disability accommodations?",
+  "answer": "206-684-8888",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "pdf",
+    "meeting_id": "6819",
+    "chunk_index": 1,
+    "text_snippet": "The City of Seattle encourages everyone to participate in its programs and activities. For disability accommodations, materials in alternate formats, accessibility information, or language interpretat"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "pdf-seattle-6811-1",
+  "question": "At the seattle city council meeting of 2026-06-30, what is the contact phone number for disability accommodations?",
+  "answer": "206-684-8888",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "pdf",
+    "meeting_id": "6811",
+    "chunk_index": 1,
+    "text_snippet": "The City of Seattle encourages everyone to participate in its programs and activities. For disability accommodations, materials in alternate formats, accessibility information, or language interpretat"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "pdf-mesa-4483-1",
+  "question": "At the mesa city council meeting of 2026-06-08, what is the contact number for Spanish interpretation services?",
+  "answer": "(480) 644-2767",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "pdf",
+    "meeting_id": "4483",
+    "chunk_index": 1,
+    "text_snippet": "SERVICIOS EN ESPA\u00d1OL: Si necesita asistencia o servicio de interpretaci\u00f3n en Espa\u00f1ol, comun\u00edquese con la Ciudad al menos 48 horas antes de la reunion al (480) 644-2767.\n\nPARTICIPATION: Members of the "
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "pdf-mesa-4483-8",
+  "question": "At the mesa city council meeting of 2026-06-08, what is the address of the farm winery requesting a new Series 13 Farm Winery License?",
+  "answer": "502 West 3rd Avenue Suite 5",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "pdf",
+    "meeting_id": "4483",
+    "chunk_index": 8,
+    "text_snippet": "A convenience store is requesting a new Series 10 Beer and Wine Store License for KL Mart LLC, 66 South Mesa Drive - Anurag Khare, agent. The existing license held by Go & Grab LLC will revert to the "
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "pdf-mesa-4487-1",
+  "question": "At the mesa city council meeting of 2026-06-01, what is the contact number for Spanish interpretation services?",
+  "answer": "(480) 644-2767",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "pdf",
+    "meeting_id": "4487",
+    "chunk_index": 1,
+    "text_snippet": "SERVICIOS EN ESPA\u00d1OL: Si necesita asistencia o servicio de interpretaci\u00f3n en Espa\u00f1ol, comun\u00edquese con la Ciudad al menos 48 horas antes de la reunion al (480) 644-2767.\n\nPARTICIPATION: Members of the "
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "pdf-mesa-4487-15",
+  "question": "At the mesa city council meeting of 2026-06-01, *6-g 26-0518 Modifying and adding new fees and charges for the Business Services Department. (Citywide) Resolution No. 12530",
+  "answer": "March 5, 2026",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "pdf",
+    "meeting_id": "4487",
+    "chunk_index": 15,
+    "text_snippet": "This was reviewed by the Audit and Finance Committee on March 5, 2026, and was recommended to move forward.\n\n*6-g 26-0518 Modifying and adding new fees and charges for the Business Services Department"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: nontrivial"
+ },
+ {
+  "id": "pdf-mesa-4487-22",
+  "question": "At the mesa city council meeting of 2026-06-01, *7-e 26-0346 Staff recommended ordinance for ZON25-00635 'Ascension', 40\u00b1 acres located at the northeast corner of East Brown Road and North 32nd Street. Rezone from Agricultural (AG) to Single Residence-15 with a Planned Area Development Overlay (RS-15-PAD). This request will allow for a 46-lot single residence development.",
+  "answer": "Brown Road Citrus, LLC",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "pdf",
+    "meeting_id": "4487",
+    "chunk_index": 22,
+    "text_snippet": "*7-d 26-0348 ZON25-00578 \"New Life Fellowship Hall Building,\" 0.6\u00b1 acres located approximately 1,770\u00b1 feet east of the northeast corner of West Broadway Road and South Dobson Road. Site Plan Review. T"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: nontrivial"
+ },
+ {
+  "id": "pdf-mesa-4474-2",
+  "question": "At the mesa city council meeting of 2026-04-06, what is the maximum time allowed for comments?",
+  "answer": "three minutes",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "pdf",
+    "meeting_id": "4474",
+    "chunk_index": 2,
+    "text_snippet": "Comments are generally limited to three minutes unless otherwise determined by the Mayor. If you are with a group, please designate a spokesperson.\n\nCONSENT AGENDA: All items listed on the agenda with"
+   }
+  ],
+  "table_name": null,
+  "sample": true,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "pdf-mesa-4474-9",
+  "question": "At the mesa city council meeting of 2026-04-06, what is the maximum annual increase allowed for Border States Industries, Inc.?",
+  "answer": "5%",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "pdf",
+    "meeting_id": "4474",
+    "chunk_index": 9,
+    "text_snippet": "The Transportation Department and Procurement Services recommend awarding the contract to the lowest, responsive, and responsible bidder, Border States Industries, Inc., in an amount not to exceed $36"
+   }
+  ],
+  "table_name": null,
+  "sample": true,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "mh-seattle-6811-20",
+  "question": "At the seattle city council meeting of 2026-06-30, what was Paul's previous experience in the neighborhood, and how did he contribute to it?",
+  "answer": "Paul Tomlinson has been involved in neighborhoods before. He worked with Pastor Keith on cleaning up graffiti and walking streets. This past Saturday, he led a cleanup in Washington Park.",
+  "difficulty": "multi-hop",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 20,
+    "text_snippet": "It is horrific. Thank you. >> Thank you, Pastor Keith. Next we have Paul followed by Glenn. >> Hi, I'm Paul Tomlinson. And I've been here before, talked about neighborhoods. I've also worked with Keit"
+   },
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 21,
+    "text_snippet": "handouts encouraging people to can come and actually clean up, walk up the hill, clean up the where the encampments were. And I believe we had about 50 people there. I've talked to to all of you about"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "mh-seattle-6811-45",
+  "question": "At the seattle city council meeting of 2026-06-30, what is the main reason for Peter Or's gratitude towards the city council members?",
+  "answer": "Peter Or expressed gratitude to the city council members Juarez, Kettle, Sawant, and Lewis for their local support of the bill. He also mentioned that this was just one small step towards addressing the problem.",
+  "difficulty": "multi-hop",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 45,
+    "text_snippet": "star six to unmute yourself. >> I'm unmuted. >> Good afternoon, Council. Uh my name is Peter Or, I'm a 16-year resident of the North Beacon Hill neighborhood, and I'm just calling in um to express gra"
+   },
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 46,
+    "text_snippet": "um specifically to Council Members Juarez, Kettle, Sawant, and Lewis for your local support of this, and um I also want to just echo what uh Keith Carpenter mentioned, that this is uh just one small s"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "mh-seattle-6811-55",
+  "question": "At the seattle city council meeting of 2026-06-30, what is the main concern of Joe Cutsler regarding KCHRA?",
+  "answer": "Joe Cutsler is concerned about the mayor's failure to deliver on his promise for tiny homes and questions the incompetence of KCHRA in calling him. He also suggests that the city council should demand answers from KCHRA.",
+  "difficulty": "multi-hop",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 55,
+    "text_snippet": "are going to see more and more people coming here. And this is only going to get worse as the year progresses. And that's not even what all that's going on here. We had SPD that targeted people in Cal"
+   },
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 56,
+    "text_snippet": "appreciate the full two minutes today. Uh the first thing is as I attempted to call into the KCHRA last Friday and was rudely interrupted by an inexperienced chair. Uh what I was trying to raise the i"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "mh-seattle-6811-60",
+  "question": "At the seattle city council meeting of 2026-06-30, what is the total number of Council members who voted in favor of adopting the consent calendar?",
+  "answer": "Nine",
+  "difficulty": "multi-hop",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 60,
+    "text_snippet": "payment of the bills. Are there any items Council members would like to remove from today's consent calendar? Hearing none, I move to adopt the consent calendar. Will someone kindly give me a second? "
+   },
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 61,
+    "text_snippet": "adopted. Will the clerk please affix my signature to the minutes and the legislation on my behalf. Now, we'll jump right into the meat of the meeting. Well, well, or the tofu of the meeting. Will the "
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "mh-seattle-6811-70",
+  "question": "At the seattle city council meeting of 2026-06-30, what is the main concern regarding Aurora's safety mentioned in both excerpts?",
+  "answer": "The root of the problem on Aurora, including sex trafficking, prostitution, drug activity, and criminal activities like gun violence, crime, solicitation, and drug activity.",
+  "difficulty": "multi-hop",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 70,
+    "text_snippet": "heard. Um people should be able to walk safely, take the bus, walk their children to school, worship, go to church, use the transportation without the fear of being shot at or be involved in crossfire"
+   },
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 71,
+    "text_snippet": "heard some more public comment, it's something that we've always known, that the root of the problem on Aurora is the sex trafficking, is the prostitution, is the drug activity. And that today I I agr"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "mh-seattle-6811-80",
+  "question": "At the seattle city council meeting of 2026-06-30, what is the name of the former Council Member who worked closely with Juarez?",
+  "answer": "Council Member Strauss",
+  "difficulty": "multi-hop",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 80,
+    "text_snippet": "more comments regarding the bill before us, which is Council Bill 121233. Council Member Strauss, you are recognized. >> Uh thank you, Council President. I'll be brief. Just want to say I've had the p"
+   },
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 81,
+    "text_snippet": "issues that have occurred that are occurring on Aurora um have extended all the way down to the Ship Canal. And when I took office, they were down to 83rd in Aurora. And what has always what I've alwa"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "mh-seattle-6811-90",
+  "question": "At the seattle city council meeting of 2026-06-30, what is Council member Strauss's comment about the city council members' representation?",
+  "answer": "Council members represent the district, but they also listen to and address issues in the broader city.",
+  "difficulty": "multi-hop",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 90,
+    "text_snippet": "Council member Foster and Council member Ring, who've been incredibly accessible. Um and also admire their their youth and intuitive status about understanding the issue and moving things forward and "
+   },
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 91,
+    "text_snippet": "a district, obviously, they're represented citywide, but they listen to us and they talk to us and they come in our offices and they say, \"What's going on in your district? I understand this.\" And I c"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "mh-seattle-6811-120",
+  "question": "At the seattle city council meeting of 2026-06-30, what is the impact of using 'community preference' in rental housing?",
+  "answer": "The impact was felt by affordable housing rental operators, allowing displaced individuals to return to their neighborhoods.",
+  "difficulty": "multi-hop",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 120,
+    "text_snippet": ">> Thank you. I have a question of Council member Foster she got by me too quick. What was the term that you used for community preference so that's the one you're asking about >> for the for the actu"
+   },
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 121,
+    "text_snippet": "we've seen that have an impact in the ability of some of our affordable housing rental operators to allow folks who have been displaced to return to the neighborhoods that they've been displaced from "
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "mh-seattle-6811-125",
+  "question": "At the seattle city council meeting of 2026-06-30, what is the name of Rain's nephew, Ivy?",
+  "answer": "Ivy",
+  "difficulty": "multi-hop",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 125,
+    "text_snippet": "Okay, awesome. Well, guess what? Thank you all for a great meeting. Um there is no other items on the agenda, so we have reached the end of today's agenda. I will take personal privilege to welcome my"
+   },
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 126,
+    "text_snippet": "coming are pumping out of First Hill, okay? So, they are coming, all right? And and I have and my family has added to two of those in the last couple years. So, I just want to say welcome Rain to the "
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "mh-seattle-6802-0",
+  "question": "At the seattle city council meeting of 2026-06-29, what is the main reason for the increase in unwanted solicitation targeting homeowners?",
+  "answer": "The trend of displacement of black, Latino, indigenous, and Asian-American residents due to factors such as home ownership being an important tool for families to build generational wealth.",
+  "difficulty": "multi-hop",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6802",
+    "chunk_index": 0,
+    "text_snippet": "All right. Good morning. The June 29th special meeting of the Housing Arts and Civil Rights Committee will come to order. It is 9:33 a.m. I'm Dion Foster, chair of the Housing Arts and Civil Rights Co"
+   },
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6802",
+    "chunk_index": 1,
+    "text_snippet": "my office has heard repeatedly from constituents all around the city who have experienced uh repeated and oftentimes harassing solicitations to buy their homes through letters, other mailings, phone c"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ },
+ {
+  "id": "mh-seattle-6802-30",
+  "question": "At the seattle city council meeting of 2026-06-29, what is the first name of the remote speaker who supports the legislation?",
+  "answer": "Jeffrey",
+  "difficulty": "multi-hop",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6802",
+    "chunk_index": 30,
+    "text_snippet": "as um continue to work with you around new ways to I I hear some of the agents talking about other protections. Um, we want to make sure that we're included in the conversation as you continue to put "
+   },
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6802",
+    "chunk_index": 31,
+    "text_snippet": "be Jeffrey Cook. Please press star six when you hear the prompt that you have been unmuted. And then our next remote speaker will be Ruby. >> Morning. Can you hear me? Yep, we can hear you. >> Good mo"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": false,
+  "judge_notes": "failed: unambiguous"
+ }
+]

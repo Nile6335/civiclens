@@ -1,0 +1,12 @@
+{
+ "ollama:qwen2.5:1.5b|BAAI/bge-small-en-v1.5|full": {
+  "mrr": 0.27307692307692305,
+  "faithfulness": 0.2916666666666667,
+  "generated_at": "2026-07-11T15:54:01.483635+00:00"
+ },
+ "ollama:qwen2.5:1.5b|BAAI/bge-small-en-v1.5|sample": {
+  "mrr": 0.4,
+  "faithfulness": 0.3,
+  "generated_at": "2026-07-11T15:58:10.444496+00:00"
+ }
+}

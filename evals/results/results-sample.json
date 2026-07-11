@@ -1,0 +1,53 @@
+{
+ "generated_at": "2026-07-11T15:58:10.444496+00:00",
+ "config": {
+  "llm": "ollama:qwen2.5:1.5b",
+  "embedding_model": "BAAI/bge-small-en-v1.5",
+  "reranker_model": "cross-encoder/ms-marco-TinyBERT-L-2-v2",
+  "scope": "sample",
+  "k": 5
+ },
+ "dataset": {
+  "total": 67,
+  "evaluated": 10,
+  "by_type": {
+   "table": 5,
+   "transcript": 5
+  },
+  "multi_hop": 3
+ },
+ "retrieval": {
+  "k": 5,
+  "modes": {
+   "dense": {
+    "hit_rate": 0.8,
+    "mrr": 0.65,
+    "n": 5
+   },
+   "hybrid": {
+    "hit_rate": 1.0,
+    "mrr": 0.6666666666666666,
+    "n": 5
+   },
+   "hybrid_rerank": {
+    "hit_rate": 0.4,
+    "mrr": 0.4,
+    "n": 5
+   }
+  },
+  "generated_at": "2026-07-11T15:55:02.125488+00:00"
+ },
+ "ragas": {
+  "faithfulness": 0.3,
+  "answer_relevancy": 0.41154800262848507,
+  "context_precision": 0.7416666666165278,
+  "context_recall": 0.85,
+  "n": 10,
+  "per_metric_n": {
+   "faithfulness": 10,
+   "answer_relevancy": 10,
+   "context_precision": 10,
+   "context_recall": 10
+  }
+ }
+}

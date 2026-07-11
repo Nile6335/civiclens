@@ -1,0 +1,1262 @@
+[
+ {
+  "id": "table-count-civic_tbl_mesa_agenda_items_4474",
+  "question": "How many items were on the agenda of the mesa city council meeting on 2026-04-06?",
+  "answer": "33",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "mesa",
+  "spans": [],
+  "table_name": "civic_tbl_mesa_agenda_items_4474",
+  "sample": true,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-file-civic_tbl_mesa_agenda_items_4474-2",
+  "question": "What is the matter file number of agenda item 2 at the mesa city council meeting on 2026-04-06?",
+  "answer": "26-0031",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "mesa",
+  "spans": [],
+  "table_name": "civic_tbl_mesa_agenda_items_4474",
+  "sample": true,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-file-civic_tbl_mesa_agenda_items_4474-3-a",
+  "question": "What is the matter file number of agenda item 3-a at the mesa city council meeting on 2026-04-06?",
+  "answer": "26-0316",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "mesa",
+  "spans": [],
+  "table_name": "civic_tbl_mesa_agenda_items_4474",
+  "sample": true,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-file-civic_tbl_mesa_agenda_items_4474-3-b",
+  "question": "What is the matter file number of agenda item 3-b at the mesa city council meeting on 2026-04-06?",
+  "answer": "26-0317",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "mesa",
+  "spans": [],
+  "table_name": "civic_tbl_mesa_agenda_items_4474",
+  "sample": true,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-type-civic_tbl_mesa_agenda_items_4474-contract",
+  "question": "How many agenda items of type 'Contract' were on the mesa city council agenda of 2026-04-06?",
+  "answer": "5",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "mesa",
+  "spans": [],
+  "table_name": "civic_tbl_mesa_agenda_items_4474",
+  "sample": true,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-count-civic_tbl_mesa_agenda_items_4483",
+  "question": "How many items were on the agenda of the mesa city council meeting on 2026-06-08?",
+  "answer": "39",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "mesa",
+  "spans": [],
+  "table_name": "civic_tbl_mesa_agenda_items_4483",
+  "sample": false,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-file-civic_tbl_mesa_agenda_items_4483-2",
+  "question": "What is the matter file number of agenda item 2 at the mesa city council meeting on 2026-06-08?",
+  "answer": "26-0036",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "mesa",
+  "spans": [],
+  "table_name": "civic_tbl_mesa_agenda_items_4483",
+  "sample": false,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-file-civic_tbl_mesa_agenda_items_4483-3-a",
+  "question": "What is the matter file number of agenda item 3-a at the mesa city council meeting on 2026-06-08?",
+  "answer": "26-0560",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "mesa",
+  "spans": [],
+  "table_name": "civic_tbl_mesa_agenda_items_4483",
+  "sample": false,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-file-civic_tbl_mesa_agenda_items_4483-3-b",
+  "question": "What is the matter file number of agenda item 3-b at the mesa city council meeting on 2026-06-08?",
+  "answer": "26-0572",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "mesa",
+  "spans": [],
+  "table_name": "civic_tbl_mesa_agenda_items_4483",
+  "sample": false,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-type-civic_tbl_mesa_agenda_items_4483-liquor_license_application",
+  "question": "How many agenda items of type 'Liquor License Application' were on the mesa city council agenda of 2026-06-08?",
+  "answer": "13",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "mesa",
+  "spans": [],
+  "table_name": "civic_tbl_mesa_agenda_items_4483",
+  "sample": false,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-count-civic_tbl_mesa_agenda_items_4487",
+  "question": "How many items were on the agenda of the mesa city council meeting on 2026-06-01?",
+  "answer": "49",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "mesa",
+  "spans": [],
+  "table_name": "civic_tbl_mesa_agenda_items_4487",
+  "sample": false,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-file-civic_tbl_mesa_agenda_items_4487-3",
+  "question": "What is the matter file number of agenda item 3 at the mesa city council meeting on 2026-06-01?",
+  "answer": "26-0035",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "mesa",
+  "spans": [],
+  "table_name": "civic_tbl_mesa_agenda_items_4487",
+  "sample": false,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-file-civic_tbl_mesa_agenda_items_4487-4-a",
+  "question": "What is the matter file number of agenda item 4-a at the mesa city council meeting on 2026-06-01?",
+  "answer": "26-0531",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "mesa",
+  "spans": [],
+  "table_name": "civic_tbl_mesa_agenda_items_4487",
+  "sample": false,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-file-civic_tbl_mesa_agenda_items_4487-5-a",
+  "question": "What is the matter file number of agenda item 5-a at the mesa city council meeting on 2026-06-01?",
+  "answer": "26-0532",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "mesa",
+  "spans": [],
+  "table_name": "civic_tbl_mesa_agenda_items_4487",
+  "sample": false,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-type-civic_tbl_mesa_agenda_items_4487-resolution",
+  "question": "How many agenda items of type 'Resolution' were on the mesa city council agenda of 2026-06-01?",
+  "answer": "18",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "mesa",
+  "spans": [],
+  "table_name": "civic_tbl_mesa_agenda_items_4487",
+  "sample": false,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-file-civic_tbl_mesa_agenda_items_4676-1-a",
+  "question": "What is the matter file number of agenda item 1-a at the mesa city council meeting on 2026-06-01?",
+  "answer": "26-0447",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "mesa",
+  "spans": [],
+  "table_name": "civic_tbl_mesa_agenda_items_4676",
+  "sample": false,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-file-civic_tbl_mesa_agenda_items_4676-1-b",
+  "question": "What is the matter file number of agenda item 1-b at the mesa city council meeting on 2026-06-01?",
+  "answer": "26-0448",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "mesa",
+  "spans": [],
+  "table_name": "civic_tbl_mesa_agenda_items_4676",
+  "sample": false,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-type-civic_tbl_mesa_agenda_items_4676-public_hearing",
+  "question": "How many agenda items of type 'Public Hearing' were on the mesa city council agenda of 2026-06-01?",
+  "answer": "1",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "mesa",
+  "spans": [],
+  "table_name": "civic_tbl_mesa_agenda_items_4676",
+  "sample": false,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-count-civic_tbl_seattle_agenda_items_6802",
+  "question": "How many items were on the agenda of the seattle city council meeting on 2026-06-29?",
+  "answer": "6",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "seattle",
+  "spans": [],
+  "table_name": "civic_tbl_seattle_agenda_items_6802",
+  "sample": false,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-type-civic_tbl_seattle_agenda_items_6802-information_item_inf_",
+  "question": "How many agenda items of type 'Information Item (Inf)' were on the seattle city council agenda of 2026-06-29?",
+  "answer": "2",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "seattle",
+  "spans": [],
+  "table_name": "civic_tbl_seattle_agenda_items_6802",
+  "sample": false,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-count-civic_tbl_seattle_agenda_items_6811",
+  "question": "How many items were on the agenda of the seattle city council meeting on 2026-06-30?",
+  "answer": "26",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "seattle",
+  "spans": [],
+  "table_name": "civic_tbl_seattle_agenda_items_6811",
+  "sample": false,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-file-civic_tbl_seattle_agenda_items_6811-1.",
+  "question": "What is the matter file number of agenda item 1. at the seattle city council meeting on 2026-06-30?",
+  "answer": "CB 121233",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "seattle",
+  "spans": [],
+  "table_name": "civic_tbl_seattle_agenda_items_6811",
+  "sample": false,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-file-civic_tbl_seattle_agenda_items_6811-2.",
+  "question": "What is the matter file number of agenda item 2. at the seattle city council meeting on 2026-06-30?",
+  "answer": "CB 121239",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "seattle",
+  "spans": [],
+  "table_name": "civic_tbl_seattle_agenda_items_6811",
+  "sample": false,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-type-civic_tbl_seattle_agenda_items_6811-ordinance_ord_",
+  "question": "How many agenda items of type 'Ordinance (Ord)' were on the seattle city council agenda of 2026-06-30?",
+  "answer": "6",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "seattle",
+  "spans": [],
+  "table_name": "civic_tbl_seattle_agenda_items_6811",
+  "sample": false,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-count-civic_tbl_seattle_agenda_items_6819",
+  "question": "How many items were on the agenda of the seattle city council meeting on 2026-07-07?",
+  "answer": "33",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "seattle",
+  "spans": [],
+  "table_name": "civic_tbl_seattle_agenda_items_6819",
+  "sample": false,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-file-civic_tbl_seattle_agenda_items_6819-1.",
+  "question": "What is the matter file number of agenda item 1. at the seattle city council meeting on 2026-07-07?",
+  "answer": "Res 32207",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "seattle",
+  "spans": [],
+  "table_name": "civic_tbl_seattle_agenda_items_6819",
+  "sample": false,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-file-civic_tbl_seattle_agenda_items_6819-10.",
+  "question": "What is the matter file number of agenda item 10. at the seattle city council meeting on 2026-07-07?",
+  "answer": "Appt 03541",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "seattle",
+  "spans": [],
+  "table_name": "civic_tbl_seattle_agenda_items_6819",
+  "sample": false,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "table-type-civic_tbl_seattle_agenda_items_6819-appointment_appt_",
+  "question": "How many agenda items of type 'Appointment (Appt)' were on the seattle city council agenda of 2026-07-07?",
+  "answer": "6",
+  "difficulty": "easy",
+  "source_type": "table",
+  "city": "seattle",
+  "spans": [],
+  "table_name": "civic_tbl_seattle_agenda_items_6819",
+  "sample": false,
+  "validated": true,
+  "judge_notes": "deterministic (generated from the table itself)"
+ },
+ {
+  "id": "transcript-mesa-4474-7",
+  "question": "At the mesa city council meeting of 2026-04-06, what is the purpose of Item 5C?",
+  "answer": "The purpose of Item 5C is to authorize the sale of certain city-owned real property located at 8130 East Redbird in Mesa and authorizing the city manager to enter into necessary deal agreement documents.",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4474",
+    "chunk_index": 7,
+    "text_snippet": "from the consent agenda and considered as a separate item. Item two, approval of minutes of previous meetings as written. Items 3A and 3B, acting on liquor license applications for the Guadalupe on Ma"
+   }
+  ],
+  "table_name": null,
+  "sample": true,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "transcript-mesa-4474-14",
+  "question": "At the mesa city council meeting of 2026-04-06, what is Noah James Markham's full name?",
+  "answer": "Noah James Markham",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4474",
+    "chunk_index": 14,
+    "text_snippet": "I have one person that wishes to speak and that would be Noah James Markham. Um, aloha mayor again. Um, to the rest of the city council. Um, 6A is a great one even though I don't like the Cubs. I like"
+   }
+  ],
+  "table_name": null,
+  "sample": true,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "transcript-seattle-6811-0",
+  "question": "At the seattle city council meeting of 2026-06-30, who is the current City Council President?",
+  "answer": "Joy Hollingsworth",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 0,
+    "text_snippet": "Good afternoon colleagues. The June 30th, 2026 meeting of the Seattle City Council will come to order. It is 2:04 p.m. My name is Joy Hollingsworth, uh City Council President. Uh will the clerk please"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "transcript-seattle-6811-14",
+  "question": "At the seattle city council meeting of 2026-06-30, who discussed that there was no need for them to respond to Clive's complaints?",
+  "answer": "HR",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 14,
+    "text_snippet": "I've made multiple complaints about Seattle Center staff and they all end up in a black hole. These complaints are backed by video evidence, written reports, and have received no meaningful response. "
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "transcript-seattle-6811-28",
+  "question": "At the seattle city council meeting of 2026-06-30, who was speaking about the Cal Anderson protest and response?",
+  "answer": "Gabriel Diaz",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 28,
+    "text_snippet": "authority right in front of you tonight to close the street for safety. You should use that same emergency for the streets where people are dying when using the street itself. At the memorial, Meredit"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "transcript-seattle-6811-49",
+  "question": "At the seattle city council meeting of 2026-06-30, who is the WBBA member speaking on behalf of?",
+  "answer": "Paula",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 49,
+    "text_snippet": "genuinely feasible, we welcome that data-driven conversation. Show us the analysis, the project-specific information, the transparent evidence. Public policy should be driven by facts, outcomes, and a"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "transcript-seattle-6811-56",
+  "question": "At the seattle city council meeting of 2026-06-30, what is the mayor's promise related to?",
+  "answer": "500 tiny homes",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 56,
+    "text_snippet": "appreciate the full two minutes today. Uh the first thing is as I attempted to call into the KCHRA last Friday and was rudely interrupted by an inexperienced chair. Uh what I was trying to raise the i"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "transcript-seattle-6811-63",
+  "question": "At the seattle city council meeting of 2026-06-30, who drafted and transmitted the original legislation?",
+  "answer": "former Mayor Harrell",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 63,
+    "text_snippet": "Transportation, or Seattle Department of Transportation, and SPD to close public streets based on the recommendation of the chief of police, quote, \"in order to prevent criminal activity.\" And that wo"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "transcript-seattle-6811-70",
+  "question": "At the seattle city council meeting of 2026-06-30, who thanked those who came to public comment?",
+  "answer": "Those who called down to public comment",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 70,
+    "text_snippet": "heard. Um people should be able to walk safely, take the bus, walk their children to school, worship, go to church, use the transportation without the fear of being shot at or be involved in crossfire"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "transcript-seattle-6811-84",
+  "question": "At the seattle city council meeting of 2026-06-30, who brought forward the emergency legislation?",
+  "answer": "Council Member Juarez",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 84,
+    "text_snippet": "this is how seriously we're taking this. Um, that Council Member Juarez brought forward this emergency legislation so we could do something right away. And I really, um, not just I not just admire but"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "transcript-seattle-6811-91",
+  "question": "At the seattle city council meeting of 2026-06-30, who was thanked by the Council President and colleagues for their undivided attention in legislation?",
+  "answer": "Council Member Juarez",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 91,
+    "text_snippet": "a district, obviously, they're represented citywide, but they listen to us and they talk to us and they come in our offices and they say, \"What's going on in your district? I understand this.\" And I c"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "transcript-seattle-6811-105",
+  "question": "At the seattle city council meeting of 2026-06-30, who was Frank Chopp?",
+  "answer": "former speaker",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 105,
+    "text_snippet": "express my appreciation. This is a a long time coming. Um and colleagues, I'm excited to ask for your support. >> Awesome. Thank you, Councilmember Foster. Uh Councilmember Lewis. >> I know you didn't"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "transcript-seattle-6811-119",
+  "question": "At the seattle city council meeting of 2026-06-30, who fully supported the legislation?",
+  "answer": "Council Member Foster",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 119,
+    "text_snippet": "right in the heart of the central district. And I will colleagues I will ask for your support and turn it back to Council President she wants to comment about this in her district. >> Awesome. Thank y"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "transcript-seattle-6811-126",
+  "question": "At the seattle city council meeting of 2026-06-30, what is the next City Council meeting scheduled for?",
+  "answer": "July 7th at 2:00 p.m.",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 126,
+    "text_snippet": "coming are pumping out of First Hill, okay? So, they are coming, all right? And and I have and my family has added to two of those in the last couple years. So, I just want to say welcome Rain to the "
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "transcript-seattle-6802-0",
+  "question": "At the seattle city council meeting of 2026-06-29, who is the chair of the Housing Arts and Civil Rights Committee?",
+  "answer": "Dion Foster",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6802",
+    "chunk_index": 0,
+    "text_snippet": "All right. Good morning. The June 29th special meeting of the Housing Arts and Civil Rights Committee will come to order. It is 9:33 a.m. I'm Dion Foster, chair of the Housing Arts and Civil Rights Co"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "transcript-seattle-6802-35",
+  "question": "At the seattle city council meeting of 2026-06-29, who is thanked for their contribution?",
+  "answer": "Colleen",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6802",
+    "chunk_index": 35,
+    "text_snippet": "Seattle homeowners out of our homes once Foster and the city council upzone us. So be wary homeowners. This bill yes Fosters nefarious plan to steal our lot. No, it sets off my PTSD from the last admi"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "transcript-seattle-6802-63",
+  "question": "At the seattle city council meeting of 2026-06-29, when is the legislation expected to be introduced and discussed?",
+  "answer": "July 8th",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6802",
+    "chunk_index": 63,
+    "text_snippet": "the ordinance. Uh 2027 costs include one full-time engagement specialist and some minor program launch cost and 2028 costs include uh both the ongoing engagement specialist position plus a new uh posi"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "transcript-seattle-6802-133",
+  "question": "At the seattle city council meeting of 2026-06-29, who was recognized for their work in the community?",
+  "answer": "All members of the panel",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6802",
+    "chunk_index": 133,
+    "text_snippet": "the idea of of more home buyers um, into the system, more educated home buyers into the system will help spread the ability to counteract these predators. Thank you so much for that. Um, and thank you"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "transcript-seattle-6802-154",
+  "question": "At the seattle city council meeting of 2026-06-29, who thanked the speakers for their contributions?",
+  "answer": "Thank you",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6802",
+    "chunk_index": 154,
+    "text_snippet": "of our community organizations from working with that homeowner um that that there's sort of a carve out or that that they're not inadvertently wrapped into that def definition of solicitation. So tha"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "transcript-mesa-4483-7",
+  "question": "At the mesa city council meeting of 2026-06-08, who is being thanked for their contribution?",
+  "answer": "Mr. Christopher",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4483",
+    "chunk_index": 7,
+    "text_snippet": "behalf of the Superior Court of Arizona in Maricopa County for the Mesa Municipal Court's use of jury administration infrastructure and related jury services offered by the Superior Court. Mayor and c"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "transcript-mesa-4487-0",
+  "question": "Who is leading the invocation on June 1st, 2026?",
+  "answer": "Reverend Tony Garcia",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4487",
+    "chunk_index": 0,
+    "text_snippet": "Welcome to the Mesa City Council meeting for June 1st, 2026. All of our council members are present. We'll begin the meeting with an invocation by Reverend Tony Garcia from the First Christian Church,"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "transcript-mesa-4487-7",
+  "question": "At the mesa city council meeting of 2026-06-01, who is being congratulated on their professional achievement?",
+  "answer": "Judge Brown",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4487",
+    "chunk_index": 7,
+    "text_snippet": "justice system along with protecting those that are most vulnerable in our in our city. And how we handle those duties says so much about who we are as a society. The first duty of society is justice,"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "transcript-mesa-4487-14",
+  "question": "At the mesa city council meeting of 2026-06-01, what did the person say she submitted a request for?",
+  "answer": "6G",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4487",
+    "chunk_index": 14,
+    "text_snippet": "of 6B. I don't have a 6G. >> Business services. >> Online before you like the online comments don't come in through here. The kiosk is the request to speak, yeah? I guess I can get back to the mayor. "
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "transcript-mesa-4487-49",
+  "question": "At the mesa city council meeting of 2026-06-01, who is speaking on behalf of their neighborhood?",
+  "answer": "Ms. Price",
+  "difficulty": "easy",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4487",
+    "chunk_index": 49,
+    "text_snippet": "Price, followed by Noah James, followed by Jim Bannon. >> Okay. Ms. Price. >> Hi. Good afternoon, or is it this one? Um good evening, council members, mayor. Um I'm happy to be here tonight, speaking "
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "pdf-seattle-6811-8",
+  "question": "At the seattle city council meeting of 2026-06-30, what is the recommended action regarding housing loans and contracts?",
+  "answer": "Authorizing actions by the Director of Housing regarding past and future housing loans and contracts",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "pdf",
+    "meeting_id": "6811",
+    "chunk_index": 8,
+    "text_snippet": "City Council Agenda June 30, 2026\n\n3. CB 121218 An ordinance relating to housing for low-income households;\n\nadopting the 2023 Seattle Housing Levy Administrative and\n\nFinancial Plan for program years"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "pdf-seattle-6802-1",
+  "question": "At the seattle city council meeting of 2026-06-29, what time does the City Council agenda meeting start?",
+  "answer": "2:10 p.m.",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "pdf",
+    "meeting_id": "6802",
+    "chunk_index": 1,
+    "text_snippet": "Council Briefing Council Briefing June 29, 2026\n\n4. Preview of City Council Actions, Council and Regional Committees 2:10 p.m. - 3:00 p.m.\n\nCity Council Agenda (2026)\n\nLink to City Council Agendas Pre"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "pdf-mesa-4483-15",
+  "question": "At the mesa city council meeting of 2026-06-08, what is the total amount recommended for the Solar-Powered Portable Traffic Signal System?",
+  "answer": "$315,000",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "pdf",
+    "meeting_id": "4483",
+    "chunk_index": 15,
+    "text_snippet": "City Council Meeting Agenda - Final June 8, 2026\n\n*4-d 26-0578 Purchase of Solar-Powered Portable Traffic Signal Trailers for the Transportation Department (Sole Source) (Citywide)\n\nThis purchase will"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "pdf-mesa-4676-1",
+  "question": "At the mesa city council meeting of 2026-06-01, what section of Arizona's law is referenced in this notice?",
+  "answer": "A.R.S. \u00a738-431.02",
+  "difficulty": "easy",
+  "source_type": "pdf",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "pdf",
+    "meeting_id": "4676",
+    "chunk_index": 1,
+    "text_snippet": "\u00b9 Prior to adjournment, at this Council meeting, the City Council may vote to go into executive session for legal advice on any item listed on this agenda pursuant to A.R.S. \u00a738-431.03(A)(3); this not"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "mh-mesa-4474-0",
+  "question": "What is the name of the person who will be speaking about environmental awards at the Mesa City Council meeting?",
+  "answer": "Mr. Bouchey",
+  "difficulty": "multi-hop",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4474",
+    "chunk_index": 0,
+    "text_snippet": "Thank you. Welcome to the Mesa City Council meeting for April 6th, 2026. Council member GoForth is unable to attend and is excused. Council member Heredia is participating by Zoom. Otherwise, all othe"
+   },
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4474",
+    "chunk_index": 1,
+    "text_snippet": "justice for all. Thank you. At Arizona Forward recently, the city of Mesa received two environmental excellent awards. And we have city staff here, Katherine Bloomquist and Stacy Bass, as well as repr"
+   }
+  ],
+  "table_name": null,
+  "sample": true,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "mh-mesa-4474-20",
+  "question": "What is the primary reason for Mesa's concern regarding the failure to meet PRR requests?",
+  "answer": "Failure to provide requested ethnicities, reasons for arrest, time for detention, and anonymous information.",
+  "difficulty": "multi-hop",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4474",
+    "chunk_index": 20,
+    "text_snippet": "our people who have not had any criminal previous criminal record. This means that we are removing from our economy people who work jobs and contribute. >> [clears throat] >> I've also covered expense"
+   },
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4474",
+    "chunk_index": 21,
+    "text_snippet": "attempting to have our 287G agreement with ICE rescinded. This is a long-standing partnership signed in 2009 under the first Obama administration that is vital to the safety and security of our great "
+   }
+  ],
+  "table_name": null,
+  "sample": true,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "mh-mesa-4474-25",
+  "question": "At the mesa city council meeting of 2026-04-06, what is Greg Stanton's stance on the ICE agreement?",
+  "answer": "Greg Stanton, as a Democrat, has done his job as Congressman. He is thankful for the Democrats' involvement in the ICE agreement and appreciates their efforts.",
+  "difficulty": "multi-hop",
+  "source_type": "transcript",
+  "city": "mesa",
+  "spans": [
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4474",
+    "chunk_index": 25,
+    "text_snippet": "Greg Stanton, as a Democrat, has done his job as Congressman. I'm very proud of that. I'm not proud of the way that the Republicans have handled the 287G agreement. We've had Barack Obama, President B"
+   },
+   {
+    "city": "mesa",
+    "source_type": "transcript",
+    "meeting_id": "4474",
+    "chunk_index": 26,
+    "text_snippet": "that we extend the the light rail in Mesa far, please. Also, there's another thing cuz there's a failure, you know, when I go into a store and I take my shirt off, people have that weird audacity to >"
+   }
+  ],
+  "table_name": null,
+  "sample": true,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "mh-seattle-6811-0",
+  "question": "At the seattle city council meeting of 2026-06-30, how many total speakers are there for the public comment period, including remote and in-person participants?",
+  "answer": "24",
+  "difficulty": "multi-hop",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 0,
+    "text_snippet": "Good afternoon colleagues. The June 30th, 2026 meeting of the Seattle City Council will come to order. It is 2:04 p.m. My name is Joy Hollingsworth, uh City Council President. Uh will the clerk please"
+   },
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 1,
+    "text_snippet": "agenda and the introduction referral calendar and the council's work program. Council cannot accept comments on quasi-judicial items or any campaign-related matters. Clerk, how many speakers do we hav"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "mh-seattle-6811-15",
+  "question": "At the seattle city council meeting of 2026-06-30, what is the purpose of Council Bill 121237?",
+  "answer": "Updating the housing levy administrative and financial plan to strengthen subsidy tools for working families.",
+  "difficulty": "multi-hop",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 15,
+    "text_snippet": "then Ivana, Keith, Paul, and then Glenn. Welcome. >> Good afternoon, President President Hollingsworth and members of the council. My name is Alicia Brius, advocacy and policy manager at Habitat for H"
+   },
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 16,
+    "text_snippet": "the Mont Lake home site. This neighborhood has a great need for affordable home ownership. It is amenity rich, transit rich, and is adjacent to essential essential worker job centers. This legislation"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "mh-seattle-6811-95",
+  "question": "At the seattle city council meeting of 2026-06-30, what is the main focus of Councilmember Rivera's speech regarding community safety?",
+  "answer": "Community safety, including bringing it into play through partnerships involving both government and community pieces.",
+  "difficulty": "multi-hop",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 95,
+    "text_snippet": "know, pillar three, you know, there's the gun violence piece that Councilmember Rivera was speaking to, but it also has community safety. You know, bringing that piece into, you know, the the partners"
+   },
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 96,
+    "text_snippet": "behavioral health crisis or clinical crises. And so, what we're doing is in sync with, you know, the overall plan to bring this, >> [snorts] >> you know, forward in terms of what we're seeing on our s"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "mh-seattle-6811-100",
+  "question": "At the seattle city council meeting of 2026-06-30, what was the outcome of the bill regarding housing funding?",
+  "answer": "The bill passed unanimously out of committee, receiving support from several council members.",
+  "difficulty": "multi-hop",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 100,
+    "text_snippet": "some changes to um update and clarify language regarding details on debt restructure and stabilization loans. Um as we know, Office of Housing made those for the first time in 2025 as part of their no"
+   },
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 101,
+    "text_snippet": "just ensures that as we move forward implementing um our housing funding, including PET, MHA, and money from the housing levy, that we have clear and strong um council oversight. Uh with that, this pa"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "mh-seattle-6811-110",
+  "question": "At the seattle city council meeting of 2026-06-30, what is the final action taken on Council Bill 121237?",
+  "answer": "The bill passes as amended.",
+  "difficulty": "multi-hop",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 110,
+    "text_snippet": ">> Councilmember Juarez. >> Aye. >> Council President Alex Pedersen. >> Yes. >> Nine in favor, none opposed. >> Motion carries. Amendment A is adopted. Are there further comments on the bill as amende"
+   },
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 111,
+    "text_snippet": "behalf? Will the clerk please read item number five into the record? >> Agenda item five, Council Bill 121237 relating to the Seattle Office of Housing placing real acquired real property in the Montl"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "mh-seattle-6811-115",
+  "question": "What is the purpose of the bill passed by the Seattle City Council on June 30, 2026?",
+  "answer": "The purpose of the bill passed by the Seattle City Council on June 30, 2026, was to authorize the acquisition of two parcels in the central area for the development of affordable homeownership units.",
+  "difficulty": "multi-hop",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 115,
+    "text_snippet": "because I mentioned that the site used to be a gas station and convenience store, there is also an encouragement for ground floor commercial because we want to make sure that we are doing what we can "
+   },
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6811",
+    "chunk_index": 116,
+    "text_snippet": ">> Council member Sawant? >> Aye. >> Council member Strauss? >> Aye. >> Council member Foster? >> Yes. >> Council member Juarez? >> Aye. >> Council President Harrell? >> Yes. >> Nine in favor, none op"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "mh-seattle-6802-20",
+  "question": "At the seattle city council meeting of 2026-06-29, what was the homeowner's initial offer for her house, and how much less did she actually sell it for?",
+  "answer": "$400,000",
+  "difficulty": "multi-hop",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6802",
+    "chunk_index": 20,
+    "text_snippet": "to come take a look at it, and lo and behold, the house was worth almost double than what they were asking her for. Um, they pointed out everything wrong with the house. Just the house needed some roo"
+   },
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6802",
+    "chunk_index": 21,
+    "text_snippet": "happened. So, I just want to share that. Thank you. Thank you. >> Our next speaker will be Yousef, followed by Randy. Yes. Hi. Good morning. Hi, my name is Yousef Nadair and I'm a licensed agent also "
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ },
+ {
+  "id": "mh-seattle-6802-25",
+  "question": "What was the previous ordinance that Seattle supported, which targeted harm?",
+  "answer": "Predatory home buying ordinance",
+  "difficulty": "multi-hop",
+  "source_type": "transcript",
+  "city": "seattle",
+  "spans": [
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6802",
+    "chunk_index": 25,
+    "text_snippet": "routine uh non-coercive communication including general advertising, market updates, and inquiries made on behalf of legitimate buyers that risks chilling lawful communication and reducing homeowners "
+   },
+   {
+    "city": "seattle",
+    "source_type": "transcript",
+    "meeting_id": "6802",
+    "chunk_index": 26,
+    "text_snippet": "offered uh clear disclosures before a purchase uh was signed, meaningful cancellation window for sellers and strong uh enforcement and private right of action. That ordinance focuses on predatory beha"
+   }
+  ],
+  "table_name": null,
+  "sample": false,
+  "validated": true,
+  "judge_notes": "ok"
+ }
+]
