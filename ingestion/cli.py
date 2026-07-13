@@ -48,6 +48,37 @@ def _maybe_tag(chunks: list[ChunkRecord]) -> list[ChunkRecord]:
     return tag_chunks(chunks)
 
 
+def _maybe_redact(
+    conn, chunks: list[ChunkRecord], city: str, meeting_id: str | None
+) -> list[ChunkRecord]:
+    """Redact PII from transcript chunks at ingest; quarantine the originals (Phase 8).
+
+    Public comment routinely includes residents' addresses/phones/emails; only
+    transcript text carries this, so only transcripts are redacted. Deliberate scope:
+    at ingest we redact only the regex PII types (address/phone/email), which are
+    unambiguously private. Person-name redaction (NER) is intentionally NOT applied to
+    the live record — council meetings are full of public officials and named speakers
+    whose names ARE the public record, and blanket name-redaction would gut the
+    product. The NER person detector is still built and measured on the seeded PII eval
+    (safety.pii.score_pii_detection); toggle settings.pii_redact_persons to apply it.
+    No-op when settings.pii_redaction is off.
+    """
+    from common.settings import get_settings
+
+    settings = get_settings()
+    if not settings.pii_redaction:
+        return chunks
+    try:
+        from safety.pii import redact_chunk_records, store_quarantine
+    except ImportError:
+        return chunks
+    redacted, quarantine = redact_chunk_records(chunks, use_ner=settings.pii_redact_persons)
+    if quarantine:
+        store_quarantine(conn, city, "transcript", meeting_id, quarantine)
+        logger.info("redacted PII in %d/%d transcript chunks", len(quarantine), len(chunks))
+    return redacted
+
+
 def ingest_samples() -> dict:
     """Ingest the bundled Mesa 2026-04-06 meeting: captions + agenda PDF + items CSV."""
     run_migrations()
@@ -56,6 +87,7 @@ def ingest_samples() -> dict:
         # transcript
         vtt = SAMPLES / "mesa_council_2026-04-06.en.vtt"
         chunks = _maybe_tag(transcript_chunks_from_vtt(vtt))
+        chunks = _maybe_redact(conn, chunks, m["city"], m["meeting_id"])
         sid = upsert_source(
             conn,
             SourceRecord(
@@ -161,7 +193,8 @@ def _ingest_meeting(
                     metadata={"captions": vtt is not None},
                 ),
             )
-            replace_chunks(conn, sid, _maybe_tag(chunks))
+            tagged = _maybe_redact(conn, _maybe_tag(chunks), meeting.client, str(meeting.event_id))
+            replace_chunks(conn, sid, tagged)
             got_anything = True
 
     if meeting.agenda_url:

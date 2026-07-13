@@ -1,0 +1,43 @@
+{
+ "phone": {
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "tp": 50,
+  "fp": 0,
+  "fn": 0
+ },
+ "email": {
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "tp": 50,
+  "fp": 0,
+  "fn": 0
+ },
+ "address": {
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "tp": 50,
+  "fp": 0,
+  "fn": 0
+ },
+ "person": {
+  "precision": 0.7352941176470589,
+  "recall": 1.0,
+  "f1": 0.8474576271186441,
+  "tp": 50,
+  "fp": 18,
+  "fn": 0
+ },
+ "overall": {
+  "precision": 0.9174311926605505,
+  "recall": 1.0,
+  "f1": 0.9569377990430622,
+  "tp": 200,
+  "fp": 18,
+  "fn": 0
+ },
+ "use_ner": true
+}
