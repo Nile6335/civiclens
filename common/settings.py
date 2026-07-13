@@ -37,6 +37,19 @@ class Settings(BaseSettings):
     topic_tagger: Literal["keyword", "zeroshot"] = "keyword"
     zero_shot_model: str = "facebook/bart-large-mnli"
 
+    # Voice mode (Phase 7)
+    piper_voice: str = "en_US-lessac-medium"
+    piper_data_dir: str = ".models/piper"
+    whisper_model: str = "small"
+
+    # Safety (Phase 8)
+    pii_redaction: bool = True  # redact transcript chunks at ingest; originals quarantined
+    # person-name NER is measured on the seeded eval but NOT applied to the live record
+    # by default: named public officials are the record (see ingestion._maybe_redact)
+    pii_redact_persons: bool = False
+    ner_model: str = "dslim/bert-base-NER"
+    harden_prompts: bool = True  # retrieved-content demarcation + instruction hierarchy
+
     # Langfuse (optional; tracing silently no-ops when unreachable)
     langfuse_host: str = ""
     langfuse_public_key: str = ""

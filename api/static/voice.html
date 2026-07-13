@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CivicLens Voice</title>
+<style>
+  :root {
+    --accent: #15529c;
+    --accent-soft: #e3edf8;
+    --ink: #1b2733;
+    --ink-soft: #5b6b7b;
+    --bg: #f4f6f8;
+    --card: #ffffff;
+    --border: #d9e0e7;
+    --error-bg: #fdecec;
+    --error-border: #e4b4b4;
+    --error-ink: #8c2f2f;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, sans-serif;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 28px 20px 64px; }
+  header { border-bottom: 2px solid var(--accent); padding-bottom: 14px; margin-bottom: 26px; }
+  header h1 { margin: 0 0 2px; font-size: 26px; letter-spacing: -0.01em; }
+  header h1 .flag { color: var(--accent); }
+  header p { margin: 0; color: var(--ink-soft); font-size: 15px; }
+  header a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  header a:hover { text-decoration: underline; }
+  .ptt-zone { text-align: center; margin: 30px 0 8px; }
+  #ptt {
+    width: 148px; height: 148px; border-radius: 50%;
+    border: 3px solid var(--accent);
+    background: var(--card); color: var(--accent);
+    cursor: pointer; -webkit-user-select: none; user-select: none;
+    touch-action: none;
+    display: inline-flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 6px;
+    font: inherit; font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    transition: background 120ms ease, color 120ms ease, box-shadow 120ms ease;
+  }
+  #ptt:focus-visible { outline: 3px solid var(--accent-soft); outline-offset: 3px; }
+  #ptt.recording {
+    background: var(--accent); color: #fff;
+    animation: pulse 1.2s ease-out infinite;
+  }
+  #ptt:disabled { opacity: 0.5; cursor: default; }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(21, 82, 156, 0.45); }
+    100% { box-shadow: 0 0 0 22px rgba(21, 82, 156, 0); }
+  }
+  @media (prefers-reduced-motion: reduce) { #ptt.recording { animation: none; } }
+  .hint { text-align: center; color: var(--ink-soft); font-size: 13px; margin: 10px 0 22px; }
+  .hint kbd {
+    border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 4px;
+    padding: 0 5px; font-size: 12px; background: var(--card);
+  }
+  #status {
+    text-align: center; min-height: 22px; font-size: 14px;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  #error {
+    display: none; background: var(--error-bg); border: 1px solid var(--error-border);
+    color: var(--error-ink); border-radius: 8px; padding: 12px 16px;
+    margin-bottom: 20px; font-size: 14px;
+  }
+  #error code {
+    background: rgba(140, 47, 47, 0.08); border-radius: 4px;
+    padding: 1px 5px; font-size: 13px;
+  }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 18px; margin-bottom: 16px;
+  }
+  .card h2 {
+    margin: 0 0 6px; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft);
+  }
+  #transcript, #answer { margin: 0; white-space: pre-wrap; min-height: 24px; }
+  #transcript.partial { color: var(--ink-soft); font-style: italic; }
+  #answer.streaming::after { content: "▍"; color: var(--accent); }
+  #metrics {
+    display: none; flex-wrap: wrap; gap: 8px 22px;
+    font-size: 13px; color: var(--ink-soft);
+    border-top: 1px solid var(--border); margin-top: 6px; padding-top: 10px;
+  }
+  #metrics b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1><span class="flag">&#9873;</span> CivicLens Voice</h1>
+    <p>Ask your city council archive a question out loud &mdash; the answer streams back
+       as speech while it is still being written.</p>
+    <p><a href="http://localhost:8501">&larr; Back to the CivicLens dashboard</a></p>
+  </header>
+
+  <div class="ptt-zone">
+    <button id="ptt" aria-pressed="false" aria-label="Push to talk: hold to record your question">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10
+                 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2z"/>
+      </svg>
+      <span id="ptt-label">HOLD TO TALK</span>
+    </button>
+  </div>
+  <p class="hint">Hold with the mouse, a touch, or the <kbd>space</kbd> bar. Release to send.</p>
+
+  <div id="status" role="status">Hold the button and ask a question.</div>
+  <div id="error" role="alert"></div>
+
+  <div class="card">
+    <h2>You asked</h2>
+    <p id="transcript">&nbsp;</p>
+  </div>
+  <div class="card">
+    <h2>Answer</h2>
+    <p id="answer">&nbsp;</p>
+    <div id="metrics"></div>
+  </div>
+</div>
+
+<script>
+"use strict";
+
+const TARGET_RATE = 16000;
+const MIN_SAMPLES = TARGET_RATE / 5; // ignore recordings shorter than ~0.2 s
+
+const pttEl = document.getElementById("ptt");
+const pttLabelEl = document.getElementById("ptt-label");
+const statusEl = document.getElementById("status");
+const errorEl = document.getElementById("error");
+const transcriptEl = document.getElementById("transcript");
+const answerEl = document.getElementById("answer");
+const metricsEl = document.getElementById("metrics");
+
+// ---------- turn state ----------
+
+let state = "idle"; // idle | recording | processing
+let ws = null;
+let turnDone = false;
+let tokenText = "";
+
+// capture state
+let mediaStream = null;
+let audioCtx = null;
+let sourceNode = null;
+let processorNode = null;
+let pcmChunks = [];
+let pcmLength = 0;
+let captureRate = 48000;
+
+// playback state
+const audioQueue = [];
+let currentAudio = null;
+let currentAudioUrl = null;
+
+// ---------- small UI helpers ----------
+
+function setStatus(text) {
+  statusEl.textContent = text;
+}
+
+function showError(message) {
+  errorEl.innerHTML = "";
+  const strong = document.createElement("strong");
+  strong.textContent = "Something went wrong: ";
+  errorEl.appendChild(strong);
+  errorEl.appendChild(document.createTextNode(message + " "));
+  const tip = document.createElement("span");
+  tip.append("If the pipeline is not running, start the demo stack with ");
+  const code = document.createElement("code");
+  code.textContent = "make demo";
+  tip.appendChild(code);
+  tip.append(".");
+  errorEl.appendChild(tip);
+  errorEl.style.display = "block";
+  setStatus("");
+}
+
+function setRecordingUI(on) {
+  pttEl.classList.toggle("recording", on);
+  pttEl.setAttribute("aria-pressed", on ? "true" : "false");
+  pttLabelEl.textContent = on ? "LISTENING…" : "HOLD TO TALK";
+}
+
+function resetTurnUI() {
+  errorEl.style.display = "none";
+  errorEl.textContent = "";
+  transcriptEl.textContent = " ";
+  transcriptEl.classList.remove("partial");
+  answerEl.textContent = " ";
+  answerEl.classList.remove("streaming");
+  metricsEl.style.display = "none";
+  metricsEl.innerHTML = "";
+  tokenText = "";
+}
+
+function fmtMs(value) {
+  if (typeof value !== "number" || !isFinite(value)) return "–";
+  return Math.round(value).toLocaleString() + " ms";
+}
+
+function renderMetrics(m) {
+  const items = [
+    ["ASR", m.asr_final_ms],
+    ["First token", m.ttft_ms],
+    ["First audio", m.ttfa_ms],
+    ["Total", m.total_ms],
+  ];
+  metricsEl.innerHTML = "";
+  for (const [label, value] of items) {
+    const span = document.createElement("span");
+    span.append(label + " ");
+    const b = document.createElement("b");
+    b.textContent = fmtMs(value);
+    span.appendChild(b);
+    metricsEl.appendChild(span);
+  }
+  metricsEl.style.display = "flex";
+}
+
+// ---------- progressive audio playback ----------
+
+function enqueueAudio(arrayBuffer) {
+  const url = URL.createObjectURL(new Blob([arrayBuffer], { type: "audio/wav" }));
+  audioQueue.push(url);
+  if (!currentAudio) playNextAudio();
+}
+
+function playNextAudio() {
+  const url = audioQueue.shift();
+  if (!url) {
+    currentAudio = null;
+    currentAudioUrl = null;
+    return;
+  }
+  const el = new Audio(url);
+  currentAudio = el;
+  currentAudioUrl = url;
+  let advanced = false;
+  const advance = function () { // once only: 'error' and a play() rejection can both fire
+    if (advanced) return;
+    advanced = true;
+    URL.revokeObjectURL(url);
+    if (currentAudio === el) playNextAudio(); // stale events must not pop a newer queue
+  };
+  el.addEventListener("ended", advance);
+  el.addEventListener("error", advance);
+  el.play().catch(advance);
+}
+
+function stopPlayback() {
+  while (audioQueue.length) URL.revokeObjectURL(audioQueue.shift());
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.removeAttribute("src");
+    currentAudio = null;
+  }
+  if (currentAudioUrl) {
+    URL.revokeObjectURL(currentAudioUrl);
+    currentAudioUrl = null;
+  }
+}
+
+// ---------- microphone capture (Float32 PCM via ScriptProcessor) ----------
+// MediaRecorder only yields webm/ogg, which the server cannot ingest, so we tap the
+// raw PCM stream with an AudioContext, downsample to 16 kHz mono, and build a WAV.
+
+async function startRecording() {
+  if (state !== "idle") return;
+  state = "recording";
+  resetTurnUI();
+  stopPlayback();
+  setRecordingUI(true);
+  setStatus("Listening… release to send.");
+  try {
+    mediaStream = await navigator.mediaDevices.getUserMedia({
+      audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true },
+    });
+  } catch (err) {
+    state = "idle";
+    setRecordingUI(false);
+    showError("Microphone access was denied (" + err.name + "). Allow the mic and retry.");
+    return;
+  }
+  if (state !== "recording") { // released before the mic was granted
+    releaseMic();
+    return;
+  }
+  audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  captureRate = audioCtx.sampleRate;
+  pcmChunks = [];
+  pcmLength = 0;
+  sourceNode = audioCtx.createMediaStreamSource(mediaStream);
+  processorNode = audioCtx.createScriptProcessor(4096, 1, 1);
+  processorNode.onaudioprocess = function (event) {
+    const input = event.inputBuffer.getChannelData(0);
+    pcmChunks.push(new Float32Array(input));
+    pcmLength += input.length;
+  };
+  sourceNode.connect(processorNode);
+  processorNode.connect(audioCtx.destination); // keeps the processor pulling samples
+}
+
+function releaseMic() {
+  if (processorNode) { processorNode.disconnect(); processorNode.onaudioprocess = null; }
+  if (sourceNode) sourceNode.disconnect();
+  if (audioCtx) audioCtx.close().catch(function () {});
+  if (mediaStream) mediaStream.getTracks().forEach(function (t) { t.stop(); });
+  processorNode = null;
+  sourceNode = null;
+  audioCtx = null;
+  mediaStream = null;
+}
+
+function stopRecording() {
+  if (state !== "recording") return;
+  setRecordingUI(false);
+  releaseMic();
+  const samples = mergeChunks(pcmChunks, pcmLength);
+  pcmChunks = [];
+  pcmLength = 0;
+  const mono16k = downsample(samples, captureRate, TARGET_RATE);
+  if (mono16k.length < MIN_SAMPLES) {
+    state = "idle";
+    setStatus("Too short — hold the button while you speak.");
+    return;
+  }
+  state = "processing";
+  setStatus("Sending your question…");
+  sendTurn(encodeWav(mono16k, TARGET_RATE));
+}
+
+function mergeChunks(chunks, total) {
+  const out = new Float32Array(total);
+  let offset = 0;
+  for (const chunk of chunks) {
+    out.set(chunk, offset);
+    offset += chunk.length;
+  }
+  return out;
+}
+
+function downsample(samples, fromRate, toRate) {
+  if (fromRate === toRate) return samples;
+  const ratio = fromRate / toRate;
+  const outLength = Math.floor(samples.length / ratio);
+  const out = new Float32Array(outLength);
+  let pos = 0;
+  for (let i = 0; i < outLength; i++) {
+    const next = Math.min(Math.round((i + 1) * ratio), samples.length);
+    let sum = 0;
+    let count = 0;
+    for (let j = pos; j < next; j++) { sum += samples[j]; count++; }
+    out[i] = count ? sum / count : 0;
+    pos = next;
+  }
+  return out;
+}
+
+function encodeWav(samples, sampleRate) {
+  const buffer = new ArrayBuffer(44 + samples.length * 2);
+  const view = new DataView(buffer);
+  const writeString = function (offset, text) {
+    for (let i = 0; i < text.length; i++) view.setUint8(offset + i, text.charCodeAt(i));
+  };
+  writeString(0, "RIFF");
+  view.setUint32(4, 36 + samples.length * 2, true);
+  writeString(8, "WAVE");
+  writeString(12, "fmt ");
+  view.setUint32(16, 16, true);  // PCM chunk size
+  view.setUint16(20, 1, true);   // PCM format
+  view.setUint16(22, 1, true);   // mono
+  view.setUint32(24, sampleRate, true);
+  view.setUint32(28, sampleRate * 2, true); // byte rate
+  view.setUint16(32, 2, true);   // block align
+  view.setUint16(34, 16, true);  // bits per sample
+  writeString(36, "data");
+  view.setUint32(40, samples.length * 2, true);
+  let offset = 44;
+  for (let i = 0; i < samples.length; i++, offset += 2) {
+    const s = Math.max(-1, Math.min(1, samples[i]));
+    view.setInt16(offset, s < 0 ? s * 0x8000 : s * 0x7fff, true);
+  }
+  return buffer;
+}
+
+// ---------- WebSocket turn (voice/protocol.py) ----------
+
+function sendTurn(wavBuffer) {
+  turnDone = false;
+  const scheme = location.protocol === "https:" ? "wss://" : "ws://";
+  ws = new WebSocket(scheme + location.host + "/voice");
+  ws.binaryType = "arraybuffer";
+  ws.onopen = function () {
+    ws.send(JSON.stringify({ type: "start", format: "wav" }));
+    ws.send(wavBuffer); // the whole utterance as one binary frame
+    ws.send(JSON.stringify({ type: "end_of_speech" }));
+    setStatus("Transcribing…");
+  };
+  ws.onmessage = function (event) {
+    if (typeof event.data === "string") {
+      let msg;
+      try { msg = JSON.parse(event.data); } catch (err) { return; }
+      handleServerEvent(msg);
+    } else {
+      enqueueAudio(event.data);
+    }
+  };
+  ws.onerror = function () {
+    if (!turnDone) finishTurn("Could not reach the voice endpoint at /voice.");
+  };
+  ws.onclose = function () {
+    if (!turnDone) finishTurn("The voice connection closed before an answer arrived.");
+  };
+}
+
+function handleServerEvent(msg) {
+  switch (msg.type) {
+    case "partial_transcript":
+      transcriptEl.textContent = msg.text || " ";
+      transcriptEl.classList.add("partial");
+      break;
+    case "final_transcript":
+      transcriptEl.textContent = msg.text || " ";
+      transcriptEl.classList.remove("partial");
+      setStatus("Thinking…");
+      break;
+    case "status": {
+      const routes = Array.isArray(msg.routes) && msg.routes.length
+        ? " · routes: " + msg.routes.join(", ")
+        : "";
+      setStatus("Running " + (msg.node || "pipeline") + routes);
+      break;
+    }
+    case "token":
+      tokenText += msg.text || "";
+      answerEl.textContent = tokenText;
+      answerEl.classList.add("streaming");
+      break;
+    case "sentence":
+      setStatus("Speaking…");
+      break;
+    case "metrics":
+      renderMetrics(msg);
+      break;
+    case "result": {
+      const answer = msg.data && typeof msg.data.answer === "string" ? msg.data.answer : "";
+      answerEl.textContent = answer || tokenText || " ";
+      answerEl.classList.remove("streaming");
+      finishTurn(null);
+      break;
+    }
+    case "error":
+      finishTurn(msg.message || "The voice pipeline reported an error.");
+      break;
+    default:
+      break;
+  }
+}
+
+function finishTurn(errorMessage) {
+  turnDone = true;
+  state = "idle";
+  answerEl.classList.remove("streaming");
+  if (errorMessage) {
+    showError(errorMessage);
+  } else {
+    setStatus("Done. Hold the button to ask another question.");
+  }
+  if (ws && ws.readyState === WebSocket.OPEN) ws.close();
+  ws = null;
+}
+
+// ---------- push-to-talk bindings (mouse, touch, spacebar) ----------
+
+pttEl.addEventListener("mousedown", function (e) { e.preventDefault(); startRecording(); });
+pttEl.addEventListener("touchstart", function (e) { e.preventDefault(); startRecording(); },
+  { passive: false });
+window.addEventListener("mouseup", stopRecording);
+pttEl.addEventListener("mouseleave", stopRecording);
+pttEl.addEventListener("touchend", function (e) { e.preventDefault(); stopRecording(); });
+pttEl.addEventListener("touchcancel", stopRecording);
+pttEl.addEventListener("keydown", function (e) {
+  // The button itself swallows Space so it does not fire a click on keyup;
+  // the window-level handler below does the actual push-to-talk work.
+  if (e.code === "Space") e.preventDefault();
+});
+window.addEventListener("keydown", function (e) {
+  if (e.code !== "Space" || e.repeat) return;
+  const tag = e.target && e.target.tagName;
+  if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+  e.preventDefault();
+  startRecording();
+});
+window.addEventListener("keyup", function (e) {
+  if (e.code !== "Space") return;
+  e.preventDefault();
+  stopRecording();
+});
+window.addEventListener("blur", function () {
+  if (state === "recording") stopRecording();
+});
+</script>
+</body>
+</html>

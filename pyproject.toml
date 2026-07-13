@@ -31,6 +31,9 @@ dependencies = [
 anthropic = ["langchain-anthropic>=0.2"]
 asr = ["faster-whisper>=1.0"]
 evals = ["ragas>=0.2.14,<0.3", "datasets>=2.20"]
+voice = [
+    "piper-tts>=1.2",
+]
 
 [dependency-groups]
 dev = [

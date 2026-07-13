@@ -35,6 +35,10 @@ FALLBACK_EXAMPLES: tuple[str, ...] = (
 )
 
 app = FastAPI(title="CivicLens", version="0.1.0")
+
+from api.voice_ws import router as voice_router  # noqa: E402
+
+app.include_router(voice_router)
 app.add_middleware(  # local demo: UI is served from another origin
     CORSMiddleware,
     allow_origins=["*"],
