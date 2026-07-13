@@ -1,5 +1,9 @@
 # CivicLens 🏛️
 
+[![CI](https://github.com/Nile6335/civiclens/actions/workflows/ci.yml/badge.svg)](https://github.com/Nile6335/civiclens/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](pyproject.toml)
+
 **Ask questions about your city council's meetings — get answers that cite the exact
 video timestamp, agenda page, or data table they came from.**
 
