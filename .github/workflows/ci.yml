@@ -47,6 +47,9 @@ jobs:
           python-version: "3.11"
       - run: uv sync --all-extras
       - run: uv run python -m common.db
+      # retrieval integration tests query the ingested sample corpus
+      - run: uv run python -m ingestion.cli samples
+      - run: uv run python -m retrieval.index
       - run: uv run pytest -q -m "not slow"
 
   # Eval regression gate: small-footprint Ollama run over the sample-corpus subset of
