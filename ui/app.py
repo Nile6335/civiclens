@@ -19,7 +19,7 @@ from ui.sse import stream_ask  # noqa: E402
 st.set_page_config(page_title="CivicLens", page_icon="🏛️", layout="wide")
 
 API_BASE_URL: str = os.environ.get("API_BASE_URL", "http://localhost:8000")
-LANGFUSE_URL: str = "http://localhost:3001"
+LANGFUSE_URL: str = "http://localhost:3002"
 
 FALLBACK_EXAMPLES: tuple[str, ...] = (
     "Who was excused from the Mesa city council meeting on April 6, 2026?",
@@ -101,7 +101,10 @@ def render_sidebar() -> dict[str, str]:
         st.selectbox("Source type", SOURCE_TYPE_OPTIONS, key="filter_source_type")
         st.selectbox("Topic", TOPIC_OPTIONS, key="filter_topic")
         st.divider()
-        st.caption(f"[API docs]({API_BASE_URL}/docs) · [Langfuse]({LANGFUSE_URL})")
+        st.caption(
+            f"[🎙️ Voice mode]({API_BASE_URL}/voice-demo) · "
+            f"[API docs]({API_BASE_URL}/docs) · [Langfuse]({LANGFUSE_URL})"
+        )
     filters: dict[str, str] = {}
     for name in ("city", "source_type", "topic"):
         value = st.session_state.get(f"filter_{name}", "All")

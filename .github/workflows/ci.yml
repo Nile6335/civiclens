@@ -98,6 +98,12 @@ jobs:
       - run: uv run python -m retrieval.index
       - name: Eval regression gate
         run: uv run python -m evals.run --sample-only --subset 20 --check-baseline
+      - name: Voice loopback test (Piper -> whisper -> agents -> Piper)
+        run: |
+          uv run python -m piper.download_voices en_US-lessac-medium --data-dir .models/piper
+          uv run pytest tests/test_voice_loopback.py -q
+      - name: Safety gate (red-team ASR + PII recall)
+        run: uv run python -m safety.run_safety --check --subset 10
       - uses: actions/upload-artifact@v4
         if: always()
         with:

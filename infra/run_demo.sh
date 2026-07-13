@@ -26,7 +26,7 @@ echo ""
 echo "CivicLens demo is running:"
 echo "  UI:       http://localhost:8501"
 echo "  API:      http://localhost:8000/docs"
-echo "  Langfuse: http://localhost:3001  (admin@civiclens.local / civiclens-admin)"
+echo "  Langfuse: http://localhost:3002  (admin@civiclens.local / civiclens-admin)"
 echo ""
 if [ "$(uname)" = "Darwin" ] && [ -z "${CI:-}" ]; then
   open http://localhost:8501 || true

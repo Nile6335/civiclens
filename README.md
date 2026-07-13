@@ -72,6 +72,12 @@ fall back to extractive quotes; no evidence yields *"Not found in the record."*
 forbidden-keyword list, table allowlist from the schema registry, forced row-limit
 wrapper, a SELECT-only Postgres role, and a 3s statement timeout.
 
+**Voice mode** (`/voice-demo`): push-to-talk → streaming `faster-whisper` transcription
+→ the same agent pipeline → sentence-level Piper TTS streamed back over a WebSocket, so
+spoken playback begins before the full answer is generated. **PII redaction** runs at
+ingest over transcript text, and a **prompt-injection red-team** measures attack success
+before and after mitigations. Both are detailed below and gated in CI.
+
 ## Evaluation (the interesting part)
 
 A synthetic-but-validated golden dataset over the real corpus:
@@ -125,7 +131,8 @@ Reproduce everything: `make eval` (ablation + RAGAS), `python -m evals.generate`
 
 Python 3.11 · uv · Postgres 16 + pgvector (HNSW) · LangGraph · Ollama (qwen2.5:1.5b
 lean / llama3.1:8b spec) · sentence-transformers (bge-small lean / bge-m3 spec) ·
-RAGAS · FastAPI + SSE · Streamlit · Langfuse v2 · Docker Compose · GitHub Actions
+RAGAS · faster-whisper · Piper TTS · dslim/bert-base-NER · FastAPI + SSE + WebSocket ·
+Streamlit · Langfuse v2 · Docker Compose · GitHub Actions
 
 Every model knob is env-switchable (`.env.example` documents the lean profile the
 project was built on — an 8GB M2 with <5GB free disk — and the spec-scale profile).
@@ -139,11 +146,86 @@ project was built on — an 8GB M2 with <5GB free disk — and the spec-scale pr
   at typical usage (~2k input + 300 output tokens per ask) that is roughly a cent per
   question — and it materially improves synthesis, routing, and judge quality.
 
+## Real-time voice mode
+
+Ask by speaking, hear a spoken cited answer. The pipeline (`/voice-demo`, served by
+FastAPI) is: browser mic → WebSocket → streaming `faster-whisper` (small, int8) →
+the existing LangGraph agents → sentence-level **Piper TTS** (`en_US-lessac-medium`,
+ungated, CPU) streamed back frame-by-frame so playback starts before the answer
+finishes. Optimizations: sentence-level TTS pipelining, eager keyword routing in voice
+mode (skips the serial LLM router round-trip), and startup model warm-up.
+
+Engineered against a stated budget (time-to-first-audio < 3s on CPU) and **measured
+honestly** — every turn logs ASR-finalization, time-to-first-token, time-to-first-audio,
+and total turn time to `evals/results/voice_latency.json`:
+
+| metric | p50 | p95 |
+|---|---|---|
+| ASR finalization | 30.1s | 50.2s |
+| time-to-first-token | 25.8s | 38.9s |
+| time-to-first-audio | 37.9s | 61.4s |
+| total turn | 41.7s | 61.4s |
+
+The 3s target is **not met on an 8GB CPU box** — whisper `small` and local-LLM synthesis
+dominate — and that honesty is the point: the instrumentation, the CPU loopback test
+(Piper synthesizes the question, whisper transcribes it, the agents answer, Piper speaks
+the reply — no human speech, runs in CI), and the optimization levers are the
+deliverable. On the Anthropic backend and/or GPU whisper these numbers drop sharply; the
+CPU figures are the floor.
+
+## Security & privacy
+
+Two safety subsystems, both measured and CI-gated (`make redteam`):
+
+**PII redaction** — residents recite home addresses, phones, and emails during public
+comment, straight into the transcript. Redaction runs at ingest over transcript text
+(only), replacing spans with typed placeholders and quarantining the originals in a
+table the read-only tabular role cannot read. Measured on a seeded test set (known PII
+injected into real transcript text), **recall-first by design**:
+
+| type | precision | recall |
+|---|---|---|
+| phone | 1.00 | 1.00 |
+| email | 1.00 | 1.00 |
+| address | 1.00 | 1.00 |
+| person (NER) | 0.74 | 1.00 |
+
+A deliberate scope decision: only the regex types (phone/email/address) are redacted from
+the live record. Person-name NER is built and measured (catches every injected name at
+0.74 precision — the recall-first tradeoff) but **not applied wholesale**, because council
+meetings are full of public officials whose names *are* the record; blanket
+name-redaction would gut the product. On the bundled sample, a real address a speaker
+stated ("1526 East Main Street") is redacted to `[ADDRESS]` while the council member
+"GoForth" is correctly retained.
+
+**Prompt-injection red team** — a ~30-attack corpus across four classes (document-embedded
+instructions, tabular SQL abuse, citation spoofing, system-prompt extraction), scored by
+Attack Success Rate with mitigations off vs on:
+
+| | before | after |
+|---|---|---|
+| overall ASR | 0.033 | **0.00** |
+| document-injection | 0.125 | 0.00 |
+| SQL abuse / citation-spoof / prompt-extraction | 0.00 | 0.00 |
+
+The finding is architectural: most classes were already at zero because the design blocks
+them structurally — SQL abuse by the layered guardrails, citation spoofing by deterministic
+citation resolution (the model emits markers, not URLs), prompt extraction because there is
+no standing secret prompt. The prompt-level mitigations (untrusted-content demarcation,
+instruction-hierarchy preamble, embedded-instruction sanitization, output validation) close
+the remaining document-injection gap to zero. (Scoring correctness mattered: a `UNION` over
+two allowlisted tables is not a breach — the table allowlist already prevents it reaching
+`users`/`pg_shadow` — so the scorer counts a UNION as exfiltration only when it references a
+table outside the `civic_tbl_` allowlist.)
+
 ## Honest limitations
 
 - The corpus is 7 meetings across 2 cities (~600 chunks) — retrieval numbers on a
   corpus this small have wide error bars, and hit@5 penalizes near-miss chunks even
   with answer-bearing expansion.
+- Voice latency is tens of seconds on CPU (see the table above); real-time feel needs a
+  GPU whisper or the Anthropic backend. The red-team corpus is ~30 attacks — a
+  demonstration of before/after measurement, not an exhaustive audit.
 - qwen2.5:1.5b is a weak judge: RAGAS scores and the dataset acceptance rate carry
   real noise at this scale (we measured its failure modes — see
   [docs/DECISIONS.md](docs/DECISIONS.md) — and moved span-verification to a
@@ -161,6 +243,8 @@ project was built on — an 8GB M2 with <5GB free disk — and the spec-scale pr
 ingestion/   VTT/ASR/PDF/table pipelines, Legistar client, CLI (samples|live)
 retrieval/   embeddings, hybrid search (RRF + rerank), topic tagging, indexer
 agents/      LangGraph graph, evidence/citations, guarded text-to-SQL
+voice/       streaming ASR, Piper TTS, latency instrumentation
+safety/      PII redaction + quarantine, prompt-injection red team, mitigations
 evals/       golden dataset gen + validation, metrics, ablation, RAGAS, CI gate
 api/         FastAPI /ask (SSE), /examples, /health
 ui/          Streamlit app (seekable video citations, evidence panel)

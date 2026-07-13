@@ -4,7 +4,7 @@ export PATH := $(HOME)/.local/bin:$(PATH)
 COMPOSE := docker compose -f infra/docker-compose.yml
 UV := uv
 
-.PHONY: setup demo ingest eval test test-unit lint fmt up down db-reset migrate ollama-up api ui stop help
+.PHONY: setup demo ingest eval redteam voice-bench test test-unit lint fmt up down db-reset migrate ollama-up api ui stop help
 
 help:
 	@grep -E '^[a-z-]+:.*#' Makefile | sed 's/:.*#/ —/'
@@ -43,6 +43,12 @@ ingest-live: # ingest real meetings from Legistar + YouTube (network required)
 
 eval: # run the eval harness (golden dataset must exist; see evals/README)
 	$(UV) run python -m evals.run
+
+redteam: # safety eval: prompt-injection red-team (before/after) + PII precision/recall
+	$(UV) run python -m safety.run_safety
+
+voice-bench: # measure voice-turn latency percentiles (warmed, N turns)
+	$(UV) run python -m voice.bench --turns 5
 
 test: # run all tests (integration tests auto-skip if the stack is down)
 	$(UV) run pytest -q

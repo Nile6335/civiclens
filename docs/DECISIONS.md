@@ -143,3 +143,73 @@ sentence — fixed with line-level dedup against the previous cue's full line se
 caption text carries HTML entities. The parser is tested against the real file, and
 the acceptance tests assert un-doubled, entity-free chunks with monotonic ~45s
 windows.
+
+## Voice mode is engineered against a latency budget, measured honestly
+
+The voice pipeline (browser mic → WebSocket → streaming faster-whisper → LangGraph →
+sentence-level Piper TTS → progressive audio playback) is built around a stated target:
+time-to-first-audio < 3s on CPU for cached-index queries. The optimizations that matter:
+
+- **Sentence-level TTS pipelining**: synthesis tokens are accumulated by a
+  `SentenceStreamer` that emits each sentence the moment it completes (citations
+  stripped so URLs aren't read aloud), so Piper starts speaking sentence one while the
+  model is still generating sentence two. Playback begins before the full answer exists.
+- **Eager heuristic routing in voice mode** (`fast_route`): a spoken turn skips the
+  serial LLM router round-trip and uses the keyword heuristic (which falls back to all
+  agents when it finds no cue, preserving recall). On a CPU-bound local model the router
+  call alone adds several seconds to time-to-first-token.
+- **Warm-up**: the server preloads the embedder, cross-encoder, and LLM at startup so
+  per-turn latency reflects steady state, not one-time model loading. The benchmark
+  discards a cold turn before measuring percentiles.
+
+The honest outcome: **the 3s target is not met on an 8GB CPU box** — ASR finalization
+(whisper `small`, beam search) and local-LLM synthesis dominate, putting p50 TTFA in the
+tens of seconds. The measurement discipline is the deliverable: every turn logs ASR
+finalization lag, time-to-first-token, time-to-first-audio, and total turn time to
+`evals/results/voice_latency.json`, and the loopback test (Piper synthesizes the
+question, whisper transcribes it back, the agents answer, Piper speaks the answer)
+runs in CI on CPU with no human speech. On the optional Anthropic backend, TTFT drops
+substantially; the CPU numbers are the floor, not the ceiling.
+
+## Security is defense-in-depth, and the red team measures each layer
+
+The prompt-injection red-team suite scores Attack Success Rate across four classes
+(document-embedded instructions, tabular SQL abuse, citation spoofing, system-prompt
+extraction) with the mitigations toggled off vs on, so the delta is attributable.
+
+The key finding is a design one: **most attack classes were already at ~zero before the
+prompt-level mitigations**, because the architecture blocks them structurally, not by
+asking the model nicely:
+
+- **SQL abuse** is blocked by the Phase 3 guardrails (SELECT-only validation, table
+  allowlist, read-only DB role, statement timeout) — independent of prompt hardening.
+- **Citation spoofing** can't succeed because citations are resolved deterministically
+  from retrieved evidence; the model emits markers, not URLs, so a fabricated URL has
+  nowhere to enter.
+- **System-prompt extraction** returns nothing because there is no standing secret
+  system prompt to leak.
+
+The prompt-level mitigations (untrusted-content demarcation, an instruction-hierarchy
+preamble, `sanitize_for_prompt` neutralizing embedded-instruction lines, and a final
+`validate_output` check for canaries/fabricated citations/leaked instructions) close the
+remaining gap — **document-injection**, where malicious instructions ride inside
+retrieved council text. That class drops to zero with mitigations on.
+
+Scoring precision mattered: the first run flagged a `UNION` between two allowlisted
+tables as a successful SQL attack. It isn't — the table-allowlist guardrail already
+prevents a UNION from reaching a non-allowlisted table like `users`, so a UNION that
+executes is provably confined to public agenda data. The scorer was corrected to count a
+UNION as exfiltration only when it references a table outside the `civic_tbl_` allowlist,
+which is the actual exploitability condition.
+
+## PII redaction favors recall, at ingest, with quarantine
+
+Residents state home addresses, phone numbers, and emails during public comment, and
+that text flows straight into the transcript. Redaction runs at ingest over transcript
+chunks only (agenda PDFs and tables don't carry public-comment PII): regex detectors
+(deliberately generous — recall over precision) plus optional NER for person names,
+with the originals retained in a `pii_quarantine` table that the read-only tabular role
+cannot see. Recall is the priority because a missed phone number is a privacy harm while
+an over-redaction is a cosmetic one; the seeded evaluation (known PII spans injected into
+real transcript text) reports per-type precision and recall so the tradeoff is measured,
+not assumed.

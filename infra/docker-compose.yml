@@ -48,13 +48,13 @@ services:
       langfuse-db:
         condition: service_healthy
     ports:
-      - "3001:3000"
+      - "3002:3000"
     environment:
       # Next.js standalone binds to $HOSTNAME; force all interfaces so the
       # localhost healthcheck probe works.
       HOSTNAME: 0.0.0.0
       DATABASE_URL: postgresql://langfuse:langfuse@langfuse-db:5432/langfuse
-      NEXTAUTH_URL: http://localhost:3001
+      NEXTAUTH_URL: http://localhost:3002
       NEXTAUTH_SECRET: civiclens-dev-nextauth-secret
       SALT: civiclens-dev-salt
       TELEMETRY_ENABLED: "false"
