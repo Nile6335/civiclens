@@ -58,7 +58,9 @@ def test_import_does_not_import_faster_whisper(monkeypatch: pytest.MonkeyPatch) 
 def test_get_model_constructs_cpu_int8_with_settings_default(whisper: FakeRecorder) -> None:
     from voice.asr_stream import StreamingTranscriber
 
-    StreamingTranscriber().partial()
+    t = StreamingTranscriber()
+    t.accept_audio(b"RIFF....some audio bytes....")
+    t.partial()
     assert whisper.ctor_calls == [
         {
             "model_size": get_settings().whisper_model,
@@ -71,7 +73,9 @@ def test_get_model_constructs_cpu_int8_with_settings_default(whisper: FakeRecord
 def test_get_model_honors_explicit_model_size(whisper: FakeRecorder) -> None:
     from voice.asr_stream import StreamingTranscriber
 
-    StreamingTranscriber(model_size="tiny").partial()
+    t = StreamingTranscriber(model_size="tiny")
+    t.accept_audio(b"RIFF....some audio bytes....")
+    t.partial()
     assert whisper.ctor_calls[0]["model_size"] == "tiny"
 
 
@@ -87,6 +91,31 @@ def test_accept_audio_accumulates_and_partial_uses_fast_settings(whisper: FakeRe
     assert call["beam_size"] == 1
     assert call["vad_filter"] is True
     assert call["condition_on_previous_text"] is False
+
+
+def test_empty_buffer_short_circuits_before_model(whisper: FakeRecorder) -> None:
+    from voice.asr_stream import StreamingTranscriber
+
+    t = StreamingTranscriber()
+    assert t.finalize() == ""
+    assert t.partial() == ""
+    assert whisper.transcribe_calls == []  # model never called on empty audio
+
+
+def test_undecodable_audio_degrades_to_empty(monkeypatch: pytest.MonkeyPatch) -> None:
+    # A model whose transcribe raises (browsers send the occasional malformed WAV):
+    # the turn must degrade to "" so the endpoint reports "no speech detected".
+    import voice.asr_stream as asr
+
+    class RaisingModel:
+        def transcribe(self, *_a: object, **_k: object):
+            raise ValueError("Invalid data found when processing input")
+
+    monkeypatch.setattr(asr, "get_model", lambda _size: RaisingModel())
+    t = asr.StreamingTranscriber()
+    t.accept_audio(b"not really a wav file")
+    assert t.finalize() == ""
+    assert t.partial() == ""
 
 
 def test_partial_is_cached_until_new_audio(whisper: FakeRecorder) -> None:

@@ -71,7 +71,16 @@ class StreamingTranscriber:
         self._bytes_at_last_partial = 0
 
     def _transcribe(self, **transcribe_kwargs: Any) -> str:
-        """Write the buffer to a temp .wav and transcribe it; returns joined segment text."""
+        """Transcribe the buffered audio; returns "" for empty or undecodable audio.
+
+        Real browsers occasionally deliver an empty or slightly malformed WAV (the user
+        clicked the mic but made no sound, a dropped frame, a client-side encoding quirk).
+        An empty buffer short-circuits; faster-whisper's decoder raises on malformed
+        audio, which we swallow — either way the endpoint reports a clean "no speech
+        detected" instead of a stack trace.
+        """
+        if not self._buffer:
+            return ""
         model = get_model(self._model_size)
         with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as tmp:
             tmp.write(bytes(self._buffer))
@@ -79,5 +88,8 @@ class StreamingTranscriber:
         try:
             segments, _info = model.transcribe(str(tmp_path), vad_filter=True, **transcribe_kwargs)
             return " ".join(s.text.strip() for s in segments).strip()
+        except Exception as exc:  # noqa: BLE001 - undecodable audio must not crash the turn
+            logger.warning("transcription failed on %d-byte buffer: %s", len(self._buffer), exc)
+            return ""
         finally:
             tmp_path.unlink(missing_ok=True)
