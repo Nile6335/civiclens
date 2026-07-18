@@ -100,13 +100,13 @@ A synthetic-but-validated golden dataset over the real corpus:
 | mode | hit@5 | MRR |
 |---|---|---|
 | Dense only (bge-small-en-v1.5) | **0.462** | **0.300** |
-| Hybrid (RRF dense+keyword) | 0.410 | 0.256 |
+| Hybrid (RRF dense+keyword) | 0.436 | 0.244 |
 | Hybrid + rerank (TinyBERT cross-encoder) | 0.410 | 0.273 |
 
 The honest finding: **on this small corpus, strong dense embeddings win top-5 outright**;
 naive RRF fusion with a relaxed keyword fallback dilutes the candidate pool on long
 questions, and a 4MB reranker recovers most (not all) of the ordering loss within the
-pool (MRR 0.256 → 0.273). Hybrid's value shows on short keyword-style queries
+pool (MRR 0.244 → 0.273). Hybrid's value shows on short keyword-style queries
 ("consent agenda") — covered by the sanity tests — rather than on long generated
 questions. With the spec-scale profile (bge-m3 + bge-reranker-base) the ordering may
 flip; the harness makes re-measuring a one-liner.

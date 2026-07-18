@@ -79,7 +79,7 @@ places, which is statistically impossible. Tracing it exposed:
   fail silently.
 
 Post-fix, the honest result on this corpus: dense-only wins hit@5 (0.462 vs 0.410);
-reranking recovers most of the fused pool's ordering loss (MRR 0.256 → 0.273). Strong
+reranking recovers most of the fused pool's ordering loss (MRR 0.244 → 0.273). Strong
 dense embeddings on a small corpus beat naive fusion on long natural-language
 questions; hybrid's value concentrates on short keyword-style queries. The harness
 makes re-measuring under bigger models a one-line config change.
