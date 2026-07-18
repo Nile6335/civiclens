@@ -351,6 +351,7 @@ def build_seeded_pii_testset(
     base_texts: list[str],
     n_per_type: int = 50,
     seed_tokens: dict[str, list[str]] | None = None,
+    include_person: bool = False,
 ) -> list[dict]:
     """Inject synthetic PII into copies of real transcript text at known offsets.
 
@@ -363,6 +364,11 @@ def build_seeded_pii_testset(
     are seeded into neutral carrier sentences (``_PERSON_CARRIERS``) so the NER detector is
     scored against the injected synthetic name alone, without the confound of real
     public-official names that appear throughout genuine transcript prose.
+
+    Person items are only produced when ``include_person`` is set — otherwise the person
+    type would appear with gold spans that a regex-only detector can never match, which
+    would (correctly but uselessly) report person recall 0. Callers that score with NER
+    pass ``include_person=True``; the regex-only CI gate leaves it off.
     """
     tokens = seed_tokens or _SEED_TOKENS
     if not base_texts:
@@ -370,7 +376,7 @@ def build_seeded_pii_testset(
 
     testset: list[dict] = []
     for pii_type, samples in tokens.items():
-        if not samples:
+        if not samples or (pii_type == "person" and not include_person):
             continue
         carriers = _PERSON_CARRIERS if pii_type == "person" else base_texts
         for i in range(n_per_type):

@@ -50,7 +50,10 @@ def _sample_transcript_texts(limit: int = 20) -> list[str]:
 
 def run_pii_eval(use_ner: bool = False) -> dict:
     """Seeded PII precision/recall over real transcript text (regex-only by default)."""
-    testset = build_seeded_pii_testset(_sample_transcript_texts(), n_per_type=50)
+    # person items only make sense (and only get scored) when NER is on
+    testset = build_seeded_pii_testset(
+        _sample_transcript_texts(), n_per_type=50, include_person=use_ner
+    )
     scores = score_pii_detection(testset, use_ner=use_ner)
     scores["use_ner"] = use_ner
     PII_PATH.write_text(json.dumps(scores, indent=1), encoding="utf-8")
@@ -131,6 +134,20 @@ def _reachable() -> bool:
         return False
 
 
+def _stratified_attacks(attacks: list[dict], n: int) -> list[dict]:
+    """Round-robin a subset across attack classes so the CI gate is representative of all
+    four classes (not just the first, hardest one) and robust to LLM nondeterminism."""
+    by_class: dict[str, list[dict]] = {}
+    for a in attacks:
+        by_class.setdefault(a["class"], []).append(a)
+    picked: list[dict] = []
+    while len(picked) < n and any(by_class.values()):
+        for klass in sorted(by_class):
+            if by_class[klass] and len(picked) < n:
+                picked.append(by_class[klass].pop(0))
+    return picked
+
+
 def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
     parser = argparse.ArgumentParser()
@@ -146,7 +163,7 @@ def main() -> None:
         sys.exit(1)
 
     pii = run_pii_eval(use_ner=args.ner)
-    attacks = ATTACKS[: args.subset] if args.check else ATTACKS
+    attacks = _stratified_attacks(ATTACKS, args.subset) if args.check else ATTACKS
     result = run_redteam_before_after(attacks)
     if not args.check:
         _render_chart(result)

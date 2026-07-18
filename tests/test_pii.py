@@ -296,19 +296,27 @@ def test_redact_chunk_records_empty() -> None:
 
 def test_build_seeded_pii_testset_injects_at_known_offsets() -> None:
     base = ["The council heard from residents at the podium during public comment."]
+    # default (regex-only): 3 types (phone/email/address) x 3 each, no person
     testset = build_seeded_pii_testset(base, n_per_type=3)
-    # 4 types (phone/email/address/person) x 3 each.
-    assert len(testset) == 12
+    assert len(testset) == 9
     for item in testset:
         assert len(item["gold_spans"]) == 1
         gold = item["gold_spans"][0]
         # Gold offsets slice out exactly the injected token.
         assert item["text"][gold["start"] : gold["end"]] == gold["text"]
-        assert gold["type"] in {"phone", "email", "address", "person"}
+        assert gold["type"] in {"phone", "email", "address"}
         assert item["seed_type"] == gold["type"]
-    # person items use neutral carriers (no real-name confound), regex types use base text
-    person_items = [it for it in testset if it["seed_type"] == "person"]
-    assert person_items and all("podium" not in it["text"] for it in person_items)
+
+
+def test_build_seeded_pii_testset_person_only_with_ner_flag() -> None:
+    base = ["The council heard from residents at the podium during public comment."]
+    with_person = build_seeded_pii_testset(base, n_per_type=3, include_person=True)
+    # 4 types x 3 each.
+    assert len(with_person) == 12
+    person_items = [it for it in with_person if it["seed_type"] == "person"]
+    # person items use neutral carriers (no real-name confound), not the base text
+    assert len(person_items) == 3
+    assert all("podium" not in it["text"] for it in person_items)
 
 
 def test_score_pii_detection_perfect_on_seeded_regex() -> None:
