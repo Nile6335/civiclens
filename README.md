@@ -173,6 +173,16 @@ the reply — no human speech, runs in CI), and the optimization levers are the
 deliverable. On the Anthropic backend and/or GPU whisper these numbers drop sharply; the
 CPU figures are the floor.
 
+**Platform note (TTS):** the spoken-audio half depends on Piper, whose prebuilt wheel
+bundles a native espeak-ng. On Linux (incl. CI) and most builds this works out of the
+box; some macOS arm64 prebuilt wheels ship a broken espeak build. CivicLens **probes TTS
+once in a subprocess** — if synthesis would crash, it is never run in-process (a native
+`abort()` there would take down the server), and the voice turn **degrades cleanly to a
+text answer** with an explicit "audio unavailable" signal to the UI. So transcription
+and the cited answer always work; audio playback works wherever Piper's native build is
+sound (and `brew install espeak-ng` can enable it on affected Macs). Text `/ask` is
+unaffected either way.
+
 ## Security & privacy
 
 Two safety subsystems, both measured and CI-gated (`make redteam`):

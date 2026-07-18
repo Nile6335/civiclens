@@ -32,14 +32,22 @@ _COMPLETE_BOUNDARY_RE = re.compile(r"[.!?]\s+")
 MIN_FRAGMENT_CHARS = 2
 
 
-@lru_cache(maxsize=1)
-def get_voice() -> "PiperVoice":
-    """Load (and cache) the configured Piper voice, auto-downloading the model if missing."""
+def _model_path() -> Path:
     settings = get_settings()
-    data_dir = Path(settings.piper_data_dir)
-    model_path = data_dir / f"{settings.piper_voice}.onnx"
+    return Path(settings.piper_data_dir) / f"{settings.piper_voice}.onnx"
+
+
+def _ensure_model() -> Path:
+    """Download the configured Piper voice model if missing; return its path.
+
+    Downloading only fetches files (no native synthesis), so it cannot abort the
+    process — unlike synthesis on a broken espeak build, which is why availability is
+    probed separately in a subprocess below.
+    """
+    settings = get_settings()
+    model_path = _model_path()
     if not model_path.exists():
-        data_dir.mkdir(parents=True, exist_ok=True)
+        model_path.parent.mkdir(parents=True, exist_ok=True)
         subprocess.run(
             [
                 sys.executable,
@@ -51,14 +59,69 @@ def get_voice() -> "PiperVoice":
             ],
             check=True,
         )
+    return model_path
+
+
+# A tiny synthesis probe run in a child process. Piper's bundled espeak-ng aborts()
+# (SIGABRT, not a catchable exception) on some prebuilt wheels — notably macOS arm64 —
+# which would take down the whole API server if run in-process. Running it once in a
+# subprocess contains the crash: the child dies, the parent reads a non-zero exit and
+# marks TTS unavailable, and the voice turn degrades to a text-only answer.
+_PROBE = (
+    "import io,wave;from piper import PiperVoice;"
+    "v=PiperVoice.load(__import__('sys').argv[1]);b=io.BytesIO();"
+    "w=wave.open(b,'wb');v.synthesize_wav('ok',w);w.close();"
+    "print(len(b.getvalue()))"
+)
+
+
+@lru_cache(maxsize=1)
+def tts_available() -> bool:
+    """True if Piper can actually synthesize audio on this platform (probed once).
+
+    Never raises; a broken native build returns False rather than crashing the caller.
+    """
+    try:
+        model_path = _ensure_model()
+    except Exception:
+        return False
+    try:
+        result = subprocess.run(
+            [sys.executable, "-c", _PROBE, str(model_path)],
+            capture_output=True,
+            timeout=60,
+        )
+    except (subprocess.SubprocessError, OSError):
+        return False
+    ok = result.returncode == 0 and result.stdout.strip().isdigit()
+    if not ok:
+        import logging
+
+        logging.getLogger(__name__).warning(
+            "Piper TTS unavailable on this platform (rc=%s); voice answers will be "
+            "text-only. On macOS this often means the prebuilt piper-tts wheel's espeak "
+            "build is broken — see the README voice notes.",
+            result.returncode,
+        )
+    return ok
+
+
+@lru_cache(maxsize=1)
+def get_voice() -> "PiperVoice":
+    """Load (and cache) the configured Piper voice, auto-downloading the model if missing."""
     from piper import PiperVoice  # lazy: the model must never load at import time
 
-    return PiperVoice.load(str(model_path))
+    return PiperVoice.load(str(_ensure_model()))
 
 
 def synthesize_wav_bytes(text: str) -> bytes:
-    """Return complete, valid WAV bytes for one utterance; empty/whitespace text -> b""."""
-    if not text.strip():
+    """Return WAV bytes for one utterance; b"" for empty text or when TTS is unavailable.
+
+    The subprocess-probed ``tts_available`` gate means in-process synthesis is only ever
+    attempted on a platform where it has been proven not to abort — so a broken Piper
+    build degrades to a (silent) text answer instead of crashing the server.
+    """
+    if not text.strip() or not tts_available():
         return b""
     voice = get_voice()
     buf = io.BytesIO()

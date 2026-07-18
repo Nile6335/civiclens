@@ -24,3 +24,7 @@ data/cache/
 .uv-sync.done
 .demo/
 digests/
+
+# Voice runtime telemetry (regenerated per run; benchmark numbers live in the README)
+evals/results/voice_turns.jsonl
+evals/results/voice_latency.json

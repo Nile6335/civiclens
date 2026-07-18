@@ -124,7 +124,20 @@ async def _emit_partial(ws: WebSocket, transcriber) -> None:
 async def _run_answer_phase(ws: WebSocket, transcript: str, opts: dict, turn: VoiceTurn) -> None:
     """Stream the agent pipeline; pipeline sentences into TTS as they complete."""
     from agents.graph import ask_stream
-    from voice.tts import SentenceStreamer, synthesize_wav_bytes
+    from voice.tts import SentenceStreamer, synthesize_wav_bytes, tts_available
+
+    # Tell the client up front if this platform can't synthesize audio, so it shows the
+    # text answer with a clear note instead of silently producing no sound.
+    if not tts_available():
+        await _send_json(
+            ws,
+            {
+                "type": protocol.SERVER_STATUS,
+                "node": "tts",
+                "tts_available": False,
+                "message": "voice synthesis unavailable on this server; showing text answer",
+            },
+        )
 
     streamer = SentenceStreamer()
 

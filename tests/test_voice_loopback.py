@@ -91,17 +91,28 @@ def test_voice_loopback(voice_ready) -> None:
     assert answer.strip()
     assert CITATION_RE.search(answer) or answer.strip() == NOT_FOUND
 
-    # 3) audio bytes returned, valid WAVs
-    assert audio_frames, "no audio frames streamed back"
-    assert all(frame.startswith(b"RIFF") for frame in audio_frames)
+    # 3) audio: valid WAVs when TTS works on this platform; otherwise the turn must
+    #    degrade cleanly (a text answer + an explicit unavailable signal, never a crash)
+    from voice.tts import tts_available
 
-    # 4) all latency metrics recorded
+    if tts_available():
+        assert audio_frames, "no audio frames streamed back"
+        assert all(frame.startswith(b"RIFF") for frame in audio_frames)
+    else:
+        statuses = [e for e in events if e.get("type") == "status"]
+        assert any(s.get("tts_available") is False for s in statuses), (
+            "TTS unavailable but the client was not told"
+        )
+
+    # 4) all latency metrics recorded (ttfa is null when no audio was produced)
     metrics = by_type["metrics"]
-    for key in METRIC_KEYS:
+    required = METRIC_KEYS if tts_available() else ("asr_final_ms", "ttft_ms", "total_ms")
+    for key in required:
         assert isinstance(metrics.get(key), int | float), f"metric {key} missing: {metrics}"
 
     # 5) persisted: a new turn row and an aggregated percentile file
     assert TURNS_PATH.exists()
     assert TURNS_PATH.read_text().count("\n") == turns_before + 1
     latency = json.loads(LATENCY_PATH.read_text())
-    assert latency["metrics"].get("ttfa_ms", {}).get("n", 0) >= 1
+    gate_metric = "ttfa_ms" if tts_available() else "total_ms"
+    assert latency["metrics"].get(gate_metric, {}).get("n", 0) >= 1

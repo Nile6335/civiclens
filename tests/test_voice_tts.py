@@ -139,12 +139,49 @@ def test_synthesize_wav_bytes_returns_complete_wav(monkeypatch: pytest.MonkeyPat
             wav.setframerate(22050)
             wav.writeframes(b"\x01\x02" * 128)
 
+    monkeypatch.setattr(tts, "tts_available", lambda: True)
     monkeypatch.setattr(tts, "get_voice", lambda: FakeVoice())
     data = tts.synthesize_wav_bytes("Hello there.")
     assert data.startswith(b"RIFF") and data[8:12] == b"WAVE"
     with wave.open(io.BytesIO(data), "rb") as wav:
         assert wav.getnframes() == 128
         assert wav.getframerate() == 22050
+
+
+def test_synthesize_wav_bytes_empty_when_tts_unavailable(monkeypatch: pytest.MonkeyPatch) -> None:
+    """A broken/absent Piper build degrades to no audio, never calling into the voice."""
+
+    def boom() -> None:
+        raise AssertionError("get_voice must not be called when TTS is unavailable")
+
+    monkeypatch.setattr(tts, "tts_available", lambda: False)
+    monkeypatch.setattr(tts, "get_voice", boom)
+    assert tts.synthesize_wav_bytes("Hello there.") == b""
+
+
+def test_tts_available_probes_in_subprocess(monkeypatch: pytest.MonkeyPatch) -> None:
+    import subprocess
+
+    monkeypatch.setattr(tts, "_ensure_model", lambda: __import__("pathlib").Path("x.onnx"))
+    tts.tts_available.cache_clear()
+
+    # a clean synth probe (prints a byte count) -> available
+    monkeypatch.setattr(
+        tts.subprocess,
+        "run",
+        lambda *a, **k: subprocess.CompletedProcess(a, 0, stdout=b"38444\n", stderr=b""),
+    )
+    assert tts.tts_available() is True
+
+    # a native abort (non-zero exit, no numeric stdout) -> unavailable, no raise
+    tts.tts_available.cache_clear()
+    monkeypatch.setattr(
+        tts.subprocess,
+        "run",
+        lambda *a, **k: subprocess.CompletedProcess(a, -6, stdout=b"", stderr=b"abort"),
+    )
+    assert tts.tts_available() is False
+    tts.tts_available.cache_clear()
 
 
 # ---------------------------------------------------------------------------
